@@ -27,7 +27,13 @@ public class RecipeSearchController implements Initializable {
         RecipeBackendController recipeBC = new RecipeBackendController();
         updateRecipeList(recipeBC);
         comboBoxIngrediens.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
+        comboBoxIngrediens.getSelectionModel().select("Visa alla");
+
         comboBoxCuisine.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
+        comboBoxCuisine.getSelectionModel().select("Visa alla");
+
+
+
     }
 
     private void updateRecipeList(RecipeBackendController recipeBC) {
