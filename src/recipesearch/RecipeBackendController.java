@@ -20,6 +20,8 @@ public class RecipeBackendController {
         SearchFilter emptySearchFilter = new SearchFilter(difficulty,maxTime,cuisine,maxPrice,mainIngredient);
         return RecipeDatabase.getSharedInstance().search(emptySearchFilter);
 
+
+        // Hej hej
     }
 
     public void setCuisine(String cuisine) {
