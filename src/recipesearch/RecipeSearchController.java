@@ -6,6 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -29,7 +30,12 @@ public class RecipeSearchController implements Initializable {
     private Slider slider = new Slider();
     @FXML
     private Label timelabel = new Label();
-
+    @FXML
+    private ImageView detailsimage;
+    @FXML
+    private Button detailsbutton;
+    @FXML
+    private Label detailslabel;
 
 
     @Override
