@@ -30,6 +30,8 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private Label timelabel = new Label();
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         RecipeBackendController backendController = new RecipeBackendController();

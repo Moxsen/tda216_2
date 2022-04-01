@@ -14,11 +14,23 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <AnchorPane maxHeight="502.0" maxWidth="800.0" minHeight="500.0" minWidth="676.0" prefHeight="502.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
    <children>
       <StackPane layoutY="-2.0" prefHeight="500.0" prefWidth="674.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <AnchorPane fx:id="recipedetails" prefHeight="391.0" prefWidth="557.0" style="-fx-background-color: FF0000;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </StackPane.margin>
+               <children>
+                  <Button fx:id="detailsbutton" layoutX="547.0" layoutY="384.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="384.0" />
+                  <ImageView fx:id="detailsimage" fitHeight="194.0" fitWidth="224.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="269.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="-1.0" />
+                  <Label fx:id="detailslabel" layoutX="288.0" layoutY="14.0" prefHeight="17.0" prefWidth="289.0" text="Recepe Detals" />
+               </children>
+            </AnchorPane>
             <SplitPane dividerPositions="0.36086309523809523" prefHeight="160.0" prefWidth="200.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
@@ -52,19 +64,6 @@
                   </AnchorPane>
               </items>
             </SplitPane>
-            <AnchorPane fx:id="recipedetails" prefHeight="391.0" prefWidth="557.0" style="-fx-background-color: FF0000;">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <StackPane.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </StackPane.margin>
-               <children>
-                  <Button fx:id="detailsname" layoutX="547.0" layoutY="384.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="384.0" />
-                  <ImageView fx:id="detailsimage" fitHeight="194.0" fitWidth="224.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="269.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="-1.0" />
-                  <Label layoutX="288.0" layoutY="14.0" prefHeight="17.0" prefWidth="289.0" text="Recepe Detals" />
-               </children>
-            </AnchorPane>
          </children>
       </StackPane>
    </children>
