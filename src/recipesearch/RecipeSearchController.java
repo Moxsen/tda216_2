@@ -8,10 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
@@ -27,19 +24,51 @@ public class RecipeSearchController implements Initializable {
     private ComboBox comboBoxCuisine;
     @FXML
     private RadioButton radioButton;
+    @FXML
+    private Spinner spinnerid;
+    @FXML
+    private Slider slider;
+    @FXML
+    private Label timelabel;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         RecipeBackendController recipeBC = new RecipeBackendController();
         updateRecipeList(recipeBC);
+
+        /*for main ingredient */
+
         comboBoxIngrediens.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
         comboBoxIngrediens.getSelectionModel().select("Visa alla");
+
+        mainIngredientComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                backendController.setMainIngredient(newValue);
+                updateRecipeList();
+            }
+        });
+
+        /*for Cuisine*/
 
         comboBoxCuisine.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
         comboBoxCuisine.getSelectionModel().select("Visa alla");
 
+        mainIngredientComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
-        /*ToggleGroup difficultyToggleGroup = new ToggleGroup();
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                backendController.setMainIngredient(newValue);
+                updateRecipeList();
+
+                /*for Radio button*/
+
+                difficultyToggleGroup = new ToggleGroup();
+                radioButton.setToggleGroup(difficultyToggleGroup);
+                radioButton.setSelected(true);
+
+        ToggleGroup difficultyToggleGroup = new ToggleGroup();
         radioButton.setToggleGroup(difficultyToggleGroup);
         radioButton.setSelected(true);
         difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
@@ -54,7 +83,17 @@ public class RecipeSearchController implements Initializable {
                     updateRecipeList();
                 }
             }
-        }); */
+        });
+
+        /* for spinner */
+                SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(.., .., .., ..);
+
+
+                /* for slider */
+
+
+
+
     }
 
     private void updateRecipeList(RecipeBackendController recipeBC) {
