@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -42,6 +43,15 @@ public class RecipeSearchController implements Initializable {
     private Button detailsbutton;
     @FXML
     private Label detailslabel;
+    @FXML
+    private AnchorPane recipedetails;
+    @FXML
+    private AnchorPane searchview;
+
+
+
+
+
 
     RecipeBackendController backendController = new RecipeBackendController();
 
