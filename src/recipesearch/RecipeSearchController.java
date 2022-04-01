@@ -32,8 +32,8 @@ public class RecipeSearchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        RecipeBackendController recipeBC = new RecipeBackendController();
-        updateRecipeList(recipeBC);
+        RecipeBackendController backendController = new RecipeBackendController();
+        updateRecipeList(backendController);
 
         /*for main ingredient */
 
@@ -45,7 +45,7 @@ public class RecipeSearchController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setMainIngredient(newValue);
-                updateRecipeList();
+                updateRecipeList(backendController);
             }
         });
 
@@ -59,16 +59,14 @@ public class RecipeSearchController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setMainIngredient(newValue);
-                updateRecipeList();
+                updateRecipeList(backendController);
             }
         });
+
         /*for Radio button*/
 
+        ToggleGroup difficultyToggleGroup;
         difficultyToggleGroup = new ToggleGroup();
-        radioButton.setToggleGroup(difficultyToggleGroup);
-        radioButton.setSelected(true);
-
-        ToggleGroup difficultyToggleGroup = new ToggleGroup();
         radioButton.setToggleGroup(difficultyToggleGroup);
         radioButton.setSelected(true);
 
@@ -81,7 +79,7 @@ public class RecipeSearchController implements Initializable {
                     RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
                     RecipeBackendController backendController = null;
                     backendController.setDifficulty(selected.getText());
-                    updateRecipeList(recipeBC);
+                    updateRecipeList(backendController);
                 }
             }
         });
