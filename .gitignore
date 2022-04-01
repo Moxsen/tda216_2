@@ -101,3 +101,10 @@ modules.xml
 
 # Sonarlint plugin
 .idea/sonarlint
+/.idea/libraries/
+/.idea/shelf/
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
