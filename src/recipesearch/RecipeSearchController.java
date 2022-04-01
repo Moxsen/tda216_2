@@ -18,9 +18,9 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private FlowPane flowpane1;
     @FXML
-    private ComboBox mainIngredientComboBox;
+    private ComboBox comboBoxIngrediens = new ComboBox();
     @FXML
-    private ComboBox comboBoxCuisine;
+    private ComboBox comboBoxCuisine = new ComboBox();
     @FXML
     private RadioButton radioButton = new RadioButton();
     @FXML
@@ -37,10 +37,10 @@ public class RecipeSearchController implements Initializable {
 
         /*for main ingredient */
 
-        mainIngredientComboBox.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
-        mainIngredientComboBox.getSelectionModel().select("Visa alla");
+        comboBoxIngrediens.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
+        comboBoxIngrediens.getSelectionModel().select("Visa alla");
 
-        mainIngredientComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        comboBoxIngrediens.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -54,7 +54,7 @@ public class RecipeSearchController implements Initializable {
         comboBoxCuisine.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
         comboBoxCuisine.getSelectionModel().select("Visa alla");
 
-        mainIngredientComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        comboBoxIngrediens.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
