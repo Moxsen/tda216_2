@@ -49,15 +49,11 @@ public class RecipeSearchController implements Initializable {
     private AnchorPane searchview;
 
 
-
-
-
-
     RecipeBackendController backendController = new RecipeBackendController();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //RecipeBackendController backendController = new RecipeBackendController();
+        updateTimeLabel(0);
         updateRecipeList(backendController);
 
         /*for main ingredient */
@@ -67,14 +63,12 @@ public class RecipeSearchController implements Initializable {
                 "Kött",
                 "Fisk",
                 "Kyckling",
-                "Vegetarisk"
-        );
+                "Vegetarisk");
         comboBoxIngrediens.getSelectionModel().select("Visa alla");
         comboBoxIngrediens.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setMainIngredient(newValue);
-                System.out.println(oldValue + " > " + newValue);
                 updateRecipeList(backendController);
             }
         });
@@ -95,7 +89,6 @@ public class RecipeSearchController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setCuisine(newValue);
-                System.out.println(oldValue + " > " + newValue);
                 updateRecipeList(backendController);
             }
         });
@@ -121,7 +114,7 @@ public class RecipeSearchController implements Initializable {
         });
 
         /* for spinner */
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,600,0,10);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 600, 0, 10);
         spinnerid.setValueFactory(valueFactory);
         spinnerid.setEditable(true);
         spinnerid.valueProperty().addListener(new ChangeListener<Integer>() {
@@ -133,14 +126,11 @@ public class RecipeSearchController implements Initializable {
         });
 
         spinnerid.focusedProperty().addListener(new ChangeListener<Boolean>() {
-
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-
-                if(newValue){
+                if (newValue) {
                     //focusgained - do nothing
-                }
-                else{
+                } else {
                     Integer value = Integer.valueOf(spinnerid.getEditor().getText());
                     backendController.setMaxPrice(value);
                     updateRecipeList(backendController);
@@ -150,10 +140,19 @@ public class RecipeSearchController implements Initializable {
         });
         /* for slider */
 
-
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number newValue) {
+                backendController.setMaxPrice(newValue.intValue());
+                updateRecipeList(backendController);
+                updateTimeLabel(newValue.intValue());
+            }
+        });
     }
 
-
+    private void updateTimeLabel(Integer time) {
+        timelabel.setText(time.toString());
+    }
 
 
     private void updateRecipeList(RecipeBackendController recipeBC) {

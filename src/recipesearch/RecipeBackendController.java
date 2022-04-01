@@ -16,13 +16,15 @@ public class RecipeBackendController {
 
     public RecipeBackendController() {
     }
+
     public List<Recipe> getRecipes() {
         SearchFilter emptySearchFilter = new SearchFilter(difficulty,maxTime,cuisine,maxPrice,mainIngredient);
-        System.out.println(cuisine + mainIngredient + " " + difficulty + maxPrice + maxTime);
+        System.out.println(cuisine
+                + " " + mainIngredient
+                + " " + difficulty
+                + " " + maxPrice
+                + " " + maxTime);
         return RecipeDatabase.getSharedInstance().search(emptySearchFilter);
-
-
-        // Hej hej
     }
 
     public void setCuisine(String cuisine) {
