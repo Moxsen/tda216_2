@@ -123,6 +123,7 @@ public class RecipeSearchController implements Initializable {
         /* for spinner */
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,600,0,10);
         spinnerid.setValueFactory(valueFactory);
+        spinnerid.setEditable(true);
         spinnerid.valueProperty().addListener(new ChangeListener<Integer>() {
             @Override
             public void changed(ObservableValue<? extends Integer> observableValue, Integer oldValue, Integer newValue) {
@@ -131,10 +132,23 @@ public class RecipeSearchController implements Initializable {
             }
         });
 
+        spinnerid.focusedProperty().addListener(new ChangeListener<Boolean>() {
 
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
 
+                if(newValue){
+                    //focusgained - do nothing
+                }
+                else{
+                    Integer value = Integer.valueOf(spinnerid.getEditor().getText());
+                    backendController.setMaxPrice(value);
+                    updateRecipeList(backendController);
+                }
 
-                /* for slider */
+            }
+        });
+        /* for slider */
 
 
     }
