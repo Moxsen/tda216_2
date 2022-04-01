@@ -111,10 +111,20 @@ public class RecipeSearchController implements Initializable {
         });
 
         /* for spinner */
-        //SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(.., .., .., ..);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,600,0,10);
+        spinnerid.setValueFactory(valueFactory);
+        spinnerid.valueProperty().addListener(new ChangeListener<Integer>() {
+            @Override
+            public void changed(ObservableValue<? extends Integer> observableValue, Integer oldValue, Integer newValue) {
+                backendController.setMaxPrice(newValue);
+                updateRecipeList(backendController);
+            }
+        });
 
 
-        /* for slider */
+
+
+                /* for slider */
 
 
     }
@@ -123,10 +133,11 @@ public class RecipeSearchController implements Initializable {
 
 
     private void updateRecipeList(RecipeBackendController recipeBC) {
-
+        System.out.println(recipeBC);
         flowpane1.getChildren().clear();
         for (Recipe recipe : recipeBC.getRecipes()
         ) {
+            System.out.println(recipe.getPrice());
             flowpane1.getChildren().add(new RecipeListItem(recipe,this));
         }
     }
