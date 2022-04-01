@@ -21,7 +21,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
                      <children>
-                        <ComboBox fx:id="comboBoxIngrediens" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
+                        <ComboBox fx:id="mainIngredientComboBox" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
                         <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
                         <RadioButton fx:id="radiobutton" layoutX="116.0" layoutY="259.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="44.0" text="Alla" AnchorPane.rightAnchor="72.0" />
                         <RadioButton fx:id="radiobutton" layoutX="116.0" layoutY="284.0" mnemonicParsing="false" text="Lätt" AnchorPane.rightAnchor="72.0" />

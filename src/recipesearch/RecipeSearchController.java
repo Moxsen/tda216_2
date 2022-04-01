@@ -1,9 +1,6 @@
 
 package recipesearch;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -11,7 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
-import se.chalmers.ait.dat215.lab2.RecipeDatabase;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class RecipeSearchController implements Initializable {
@@ -19,17 +18,17 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private FlowPane flowpane1;
     @FXML
-    private ComboBox comboBoxIngrediens;
+    private ComboBox mainIngredientComboBox;
     @FXML
     private ComboBox comboBoxCuisine;
     @FXML
     private RadioButton radioButton = new RadioButton();
     @FXML
-    private Spinner spinnerid;
+    private Spinner spinnerid = new Spinner();
     @FXML
-    private Slider slider;
+    private Slider slider = new Slider();
     @FXML
-    private Label timelabel;
+    private Label timelabel = new Label();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -38,8 +37,8 @@ public class RecipeSearchController implements Initializable {
 
         /*for main ingredient */
 
-        comboBoxIngrediens.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
-        comboBoxIngrediens.getSelectionModel().select("Visa alla");
+        mainIngredientComboBox.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
+        mainIngredientComboBox.getSelectionModel().select("Visa alla");
 
         mainIngredientComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
@@ -61,16 +60,18 @@ public class RecipeSearchController implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setMainIngredient(newValue);
                 updateRecipeList();
+            }
+        });
+        /*for Radio button*/
 
-                /*for Radio button*/
-
-                difficultyToggleGroup = new ToggleGroup();
-                radioButton.setToggleGroup(difficultyToggleGroup);
-                radioButton.setSelected(true);
+        difficultyToggleGroup = new ToggleGroup();
+        radioButton.setToggleGroup(difficultyToggleGroup);
+        radioButton.setSelected(true);
 
         ToggleGroup difficultyToggleGroup = new ToggleGroup();
         radioButton.setToggleGroup(difficultyToggleGroup);
         radioButton.setSelected(true);
+
         difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
             @Override
@@ -80,21 +81,22 @@ public class RecipeSearchController implements Initializable {
                     RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
                     RecipeBackendController backendController = null;
                     backendController.setDifficulty(selected.getText());
-                    updateRecipeList();
+                    updateRecipeList(recipeBC);
                 }
             }
         });
 
         /* for spinner */
-                SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(.., .., .., ..);
+        //SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(.., .., .., ..);
 
 
-                /* for slider */
-
-
+        /* for slider */
 
 
     }
+
+
+
 
     private void updateRecipeList(RecipeBackendController recipeBC) {
 
@@ -105,3 +107,4 @@ public class RecipeSearchController implements Initializable {
         }
     }
 }
+

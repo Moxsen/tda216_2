@@ -23,11 +23,11 @@
                      <children>
                         <ComboBox fx:id="comboBoxIngrediens" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
                         <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
-                        <RadioButton layoutX="116.0" layoutY="259.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="44.0" text="Alla" AnchorPane.rightAnchor="72.0" />
-                        <RadioButton layoutX="116.0" layoutY="284.0" mnemonicParsing="false" text="Lätt" AnchorPane.rightAnchor="72.0" />
-                        <RadioButton layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.rightAnchor="57.0" />
-                        <RadioButton layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.rightAnchor="68.0" />
-                        <Spinner layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.rightAnchor="43.0" />
+                        <RadioButton fx:id="radiobutton" layoutX="116.0" layoutY="259.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="44.0" text="Alla" AnchorPane.rightAnchor="72.0" />
+                        <RadioButton fx:id="radiobutton" layoutX="116.0" layoutY="284.0" mnemonicParsing="false" text="Lätt" AnchorPane.rightAnchor="72.0" />
+                        <RadioButton fx:id="radiobutton" layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.rightAnchor="57.0" />
+                        <RadioButton fx:id="radiobutton" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.rightAnchor="68.0" />
+                        <Spinner fx:id="spinnerid" layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.rightAnchor="43.0" />
                         <Slider layoutX="106.0" layoutY="432.0" prefHeight="16.0" prefWidth="120.0" AnchorPane.rightAnchor="6.0" />
                         <Label layoutX="15.0" layoutY="53.0" prefHeight="87.0" prefWidth="216.0" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.rightAnchor="1.0" />
                         <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" text="Huvudingrediens:" AnchorPane.rightAnchor="130.0" />
