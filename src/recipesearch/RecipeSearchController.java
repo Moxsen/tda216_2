@@ -18,11 +18,17 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private FlowPane flowpane1;
     @FXML
-    private ComboBox comboBoxIngrediens = new ComboBox();
+    private ComboBox comboBoxIngrediens;
     @FXML
-    private ComboBox comboBoxCuisine = new ComboBox();
+    private ComboBox comboBoxCuisine;
     @FXML
-    private RadioButton radioButton = new RadioButton();
+    private RadioButton radiobutton1;
+    @FXML
+    private RadioButton radiobutton2;
+    @FXML
+    private RadioButton radiobutton3;
+    @FXML
+    private RadioButton radiobutton4;
     @FXML
     private Spinner spinnerid = new Spinner();
     @FXML
@@ -31,36 +37,49 @@ public class RecipeSearchController implements Initializable {
     private Label timelabel = new Label();
 
 
+    RecipeBackendController backendController = new RecipeBackendController();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        RecipeBackendController backendController = new RecipeBackendController();
+        //RecipeBackendController backendController = new RecipeBackendController();
         updateRecipeList(backendController);
 
         /*for main ingredient */
 
-        comboBoxIngrediens.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
+        comboBoxIngrediens.getItems().addAll(
+                "Visa alla",
+                "Kött",
+                "Fisk",
+                "Kyckling",
+                "Vegetarisk"
+        );
         comboBoxIngrediens.getSelectionModel().select("Visa alla");
-
         comboBoxIngrediens.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setMainIngredient(newValue);
+                System.out.println(oldValue + " > " + newValue);
                 updateRecipeList(backendController);
             }
         });
 
         /*for Cuisine*/
 
-        comboBoxCuisine.getItems().addAll("Visa alla", "Apa", "Bepa", "Cepa", "Depa");
+        comboBoxCuisine.getItems().addAll(
+                "Visa alla",
+                "Sverige",
+                "Grekland",
+                "Indien",
+                "Asien",
+                "Afrika",
+                "Frankrike"
+        );
         comboBoxCuisine.getSelectionModel().select("Visa alla");
-
-        comboBoxIngrediens.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
+        comboBoxCuisine.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                backendController.setMainIngredient(newValue);
+                backendController.setCuisine(newValue);
+                System.out.println(oldValue + " > " + newValue);
                 updateRecipeList(backendController);
             }
         });
@@ -69,17 +88,16 @@ public class RecipeSearchController implements Initializable {
 
         ToggleGroup difficultyToggleGroup;
         difficultyToggleGroup = new ToggleGroup();
-        radioButton.setToggleGroup(difficultyToggleGroup);
-        radioButton.setSelected(true);
-
+        radiobutton1.setToggleGroup(difficultyToggleGroup);
+        radiobutton2.setToggleGroup(difficultyToggleGroup);
+        radiobutton3.setToggleGroup(difficultyToggleGroup);
+        radiobutton4.setToggleGroup(difficultyToggleGroup);
+        radiobutton1.setSelected(true);
         difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
                 if (difficultyToggleGroup.getSelectedToggle() != null) {
                     RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
-                    RecipeBackendController backendController = null;
                     backendController.setDifficulty(selected.getText());
                     updateRecipeList(backendController);
                 }
