@@ -23,7 +23,7 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private ComboBox comboBoxCuisine;
     @FXML
-    private RadioButton radioButton;
+    private RadioButton radioButton = new RadioButton();
     @FXML
     private Spinner spinnerid;
     @FXML

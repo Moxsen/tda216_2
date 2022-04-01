@@ -28,7 +28,7 @@
                         <RadioButton fx:id="radiobutton" layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.rightAnchor="57.0" />
                         <RadioButton fx:id="radiobutton" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.rightAnchor="68.0" />
                         <Spinner fx:id="spinnerid" layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.rightAnchor="43.0" />
-                        <Slider layoutX="106.0" layoutY="432.0" prefHeight="16.0" prefWidth="120.0" AnchorPane.rightAnchor="6.0" />
+                        <Slider fx:id="slider" blockIncrement="1.0" layoutX="106.0" layoutY="432.0" majorTickUnit="1.0" max="200.0" prefHeight="16.0" prefWidth="120.0" value="1.0" AnchorPane.rightAnchor="6.0" />
                         <Label layoutX="15.0" layoutY="53.0" prefHeight="87.0" prefWidth="216.0" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.rightAnchor="1.0" />
                         <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" text="Huvudingrediens:" AnchorPane.rightAnchor="130.0" />
                         <Label layoutX="15.0" layoutY="200.0" prefHeight="26.0" prefWidth="26.0" text="Kök:" AnchorPane.rightAnchor="130.0" />
@@ -36,6 +36,7 @@
                         <Label layoutX="15.0" layoutY="380.0" prefHeight="17.0" prefWidth="48.0" text="Maxpris:" AnchorPane.rightAnchor="130.0" />
                         <Label layoutX="24.0" layoutY="431.0" prefHeight="17.0" prefWidth="44.0" text="Maxtid:" AnchorPane.rightAnchor="130.0" />
                         <Label layoutX="190.0" layoutY="380.0" text="kr" AnchorPane.rightAnchor="31.5" />
+                        <Label fx:id="timelabel" layoutX="175.0" layoutY="448.0" text="timelabel" AnchorPane.rightAnchor="15.5" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="430.0">
