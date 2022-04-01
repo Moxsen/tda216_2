@@ -33,7 +33,7 @@
             </AnchorPane>
             <SplitPane dividerPositions="0.36086309523809523" prefHeight="160.0" prefWidth="200.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
+                <AnchorPane fx:id="searchview" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
                      <children>
                         <ComboBox fx:id="comboBoxIngrediens" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
                         <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
