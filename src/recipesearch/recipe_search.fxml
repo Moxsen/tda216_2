@@ -26,7 +26,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </StackPane.margin>
                <children>
-                  <Button fx:id="detailsbutton" layoutX="547.0" layoutY="384.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="384.0" />
+                  <Button fx:id="detailsbutton" layoutX="547.0" layoutY="384.0" mnemonicParsing="false" onAction="#closeRecipeView" prefHeight="26.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="547.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="384.0" />
                   <ImageView fx:id="detailsimage" fitHeight="194.0" fitWidth="224.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="269.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="-1.0" />
                   <Label fx:id="detailslabel" layoutX="288.0" layoutY="14.0" prefHeight="17.0" prefWidth="289.0" text="Recepe Detals" />
                </children>
@@ -35,20 +35,20 @@
               <items>
                 <AnchorPane fx:id="searchview" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
                      <children>
-                        <ComboBox fx:id="comboBoxIngrediens" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
-                        <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.rightAnchor="5.0" />
-                        <RadioButton fx:id="radiobutton1" layoutX="116.0" layoutY="259.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="44.0" text="Alla" AnchorPane.rightAnchor="72.0" />
-                        <RadioButton fx:id="radiobutton2" layoutX="116.0" layoutY="284.0" mnemonicParsing="false" text="Lätt" AnchorPane.rightAnchor="72.0" />
-                        <RadioButton fx:id="radiobutton3" layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.rightAnchor="57.0" />
-                        <RadioButton fx:id="radiobutton4" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.rightAnchor="68.0" />
-                        <Spinner fx:id="spinnerid" layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.rightAnchor="43.0" />
-                        <Slider fx:id="slider" blockIncrement="1.0" layoutX="106.0" layoutY="432.0" majorTickUnit="1.0" max="200.0" prefHeight="16.0" prefWidth="120.0" value="1.0" AnchorPane.rightAnchor="6.0" />
-                        <Label layoutX="15.0" layoutY="53.0" prefHeight="87.0" prefWidth="216.0" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.rightAnchor="1.0" />
-                        <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" text="Huvudingrediens:" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="15.0" layoutY="200.0" prefHeight="26.0" prefWidth="26.0" text="Kök:" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="15.0" layoutY="259.0" text="Svårighetsgrad:" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="15.0" layoutY="380.0" prefHeight="17.0" prefWidth="48.0" text="Maxpris:" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="24.0" layoutY="431.0" prefHeight="17.0" prefWidth="44.0" text="Maxtid:" AnchorPane.rightAnchor="130.0" />
+                        <ComboBox fx:id="comboBoxIngrediens" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
+                        <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
+                        <RadioButton fx:id="radiobutton1" layoutX="116.0" layoutY="259.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="44.0" text="Alla" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="72.0" />
+                        <RadioButton fx:id="radiobutton2" layoutX="116.0" layoutY="284.0" mnemonicParsing="false" text="Lätt" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="72.0" />
+                        <RadioButton fx:id="radiobutton3" layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="57.0" />
+                        <RadioButton fx:id="radiobutton4" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="68.0" />
+                        <Spinner fx:id="spinnerid" layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="43.0" />
+                        <Slider fx:id="slider" blockIncrement="1.0" layoutX="106.0" layoutY="432.0" majorTickUnit="10.0" max="150.0" min="10.0" minorTickCount="1" prefHeight="16.0" prefWidth="120.0" value="1.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="6.0" />
+                        <Label layoutX="15.0" layoutY="53.0" prefHeight="87.0" prefWidth="216.0" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="1.0" />
+                        <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" text="Huvudingrediens:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="15.0" layoutY="200.0" prefHeight="26.0" prefWidth="26.0" text="Kök:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="15.0" layoutY="259.0" text="Svårighetsgrad:" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="15.0" layoutY="380.0" prefHeight="17.0" prefWidth="48.0" text="Maxpris:" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="24.0" layoutY="431.0" prefHeight="17.0" prefWidth="44.0" text="Maxtid:" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="130.0" />
                         <Label layoutX="190.0" layoutY="380.0" text="kr" AnchorPane.rightAnchor="31.5" />
                         <Label fx:id="timelabel" layoutX="175.0" layoutY="448.0" text="timelabel" AnchorPane.rightAnchor="15.5" />
                      </children>

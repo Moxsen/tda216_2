@@ -12,6 +12,8 @@ import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 
@@ -48,11 +50,16 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private AnchorPane searchview;
 
-
+    private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
     RecipeBackendController backendController = new RecipeBackendController();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        for (Recipe recipe : backendController.getRecipes()) {
+            RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
+            recipeListItemMap.put(recipe.getName(), recipeListItem);
+        }
         updateTimeLabel(0);
         updateRecipeList(backendController);
 
@@ -148,7 +155,25 @@ public class RecipeSearchController implements Initializable {
                 updateTimeLabel(newValue.intValue());
             }
         });
+
     }
+
+    public void populateRecipeDetailView(Recipe recipe) {
+        detailslabel.setText(recipe.getName());
+        detailsimage.setImage(recipe.getFXImage());
+    }
+
+    @FXML
+    public void closeRecipeView(){
+        recipedetails.toBack();
+    }
+
+    public void openRecipeView(Recipe recipe){
+        populateRecipeDetailView(recipe);
+        recipedetails.toFront();
+    }
+
+
 
     private void updateTimeLabel(Integer time) {
         timelabel.setText(time.toString());
@@ -158,11 +183,13 @@ public class RecipeSearchController implements Initializable {
     private void updateRecipeList(RecipeBackendController recipeBC) {
         System.out.println(recipeBC);
         flowpane1.getChildren().clear();
+
         for (Recipe recipe : recipeBC.getRecipes()
         ) {
             System.out.println(recipe.getPrice());
-            flowpane1.getChildren().add(new RecipeListItem(recipe,this));
+            flowpane1.getChildren().add(recipeListItemMap.get(recipe.getName()));
         }
+
     }
 }
 
