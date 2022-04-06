@@ -181,12 +181,12 @@ public class RecipeSearchController implements Initializable {
 
 
     private void updateRecipeList(RecipeBackendController recipeBC) {
-        System.out.println(recipeBC);
+        //System.out.println(recipeBC);
         flowpane1.getChildren().clear();
 
         for (Recipe recipe : recipeBC.getRecipes()
         ) {
-            System.out.println(recipe.getPrice());
+            //System.out.println(recipe.getPrice());
             flowpane1.getChildren().add(recipeListItemMap.get(recipe.getName()));
         }
 
