@@ -177,7 +177,7 @@ public class RecipeSearchController implements Initializable {
 
 
     private void updateTimeLabel(Integer time) {
-        timelabel.setText(time.toString());
+        timelabel.setText(time.toString() + " min");
     }
 
 
