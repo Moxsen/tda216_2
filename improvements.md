@@ -6,7 +6,7 @@ Ingen kontroll har fokus när programmet startar.
 Det skulle kunna finnas en poäng med att ge svårighetsgraden, eller det översta filtret fokus när programmet startar.
 Ingen kontroll får fokus när man kommer tillbaka från en detaljerad vy. Det skulle kunna finnas en poäng med att låta senaste kontrollen som hade fokus, få fokus igen.
 
-Konkreta förbättringar inkluderar:
+## Konkreta förbättringar
 - Sätta en minimum och maximum bredd på filterfönstret.
 - Gör så att knappen "Close" inte blir för stor när man har maximerat fönstret.
 - Istället för att ha förklarande text vid varje sökfilter, använd andra default-värden för att visa vad filtret innebär, t.ex. "Värdsdelar" eller "Ursprung" för att visa att ComboBoxen med land sorterar baserat på "Ursprung".
