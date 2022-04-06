@@ -42,7 +42,7 @@
                         <RadioButton fx:id="radiobutton3" layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="57.0" />
                         <RadioButton fx:id="radiobutton4" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="68.0" />
                         <Spinner fx:id="spinnerid" layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="43.0" />
-                        <Slider fx:id="slider" blockIncrement="1.0" layoutX="106.0" layoutY="432.0" majorTickUnit="10.0" max="150.0" min="10.0" minorTickCount="1" prefHeight="16.0" prefWidth="120.0" value="1.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="6.0" />
+                        <Slider fx:id="slider" layoutX="106.0" layoutY="432.0" majorTickUnit="10.0" max="150.0" min="10.0" minorTickCount="10" prefHeight="16.0" prefWidth="120.0" snapToTicks="true" value="1.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="6.0" />
                         <Label layoutX="15.0" layoutY="53.0" prefHeight="87.0" prefWidth="216.0" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="1.0" />
                         <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" text="Huvudingrediens:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
                         <Label layoutX="15.0" layoutY="200.0" prefHeight="26.0" prefWidth="26.0" text="Kök:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
