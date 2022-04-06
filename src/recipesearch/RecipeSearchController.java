@@ -34,11 +34,11 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private RadioButton radiobutton4;
     @FXML
-    private Spinner spinnerid = new Spinner();
+    private Spinner spinnerid;
     @FXML
-    private Slider slider = new Slider();
+    private Slider slider;
     @FXML
-    private Label timelabel = new Label();
+    private Label timelabel;
     @FXML
     private ImageView detailsimage;
     @FXML
@@ -60,7 +60,7 @@ public class RecipeSearchController implements Initializable {
             RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
             recipeListItemMap.put(recipe.getName(), recipeListItem);
         }
-        updateTimeLabel(0);
+        updateTimeLabel(slider.valueProperty().intValue());
         updateRecipeList(backendController);
 
         /*for main ingredient */
@@ -150,9 +150,10 @@ public class RecipeSearchController implements Initializable {
         slider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number newValue) {
-                backendController.setMaxPrice(newValue.intValue());
+                int value = (newValue.intValue() / 10) * 10;
+                backendController.setMaxPrice(value);
                 updateRecipeList(backendController);
-                updateTimeLabel(newValue.intValue());
+                updateTimeLabel(value);
             }
         });
 
