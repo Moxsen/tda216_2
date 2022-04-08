@@ -14,7 +14,8 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane maxHeight="502.0" maxWidth="800.0" minHeight="500.0" minWidth="676.0" prefHeight="502.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
+<?import javafx.scene.image.Image?>
+<AnchorPane maxHeight="502.0" maxWidth="800.0" minHeight="500.0" minWidth="676.0" prefHeight="502.0" prefWidth="676.0" stylesheets="@recipe_search.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
    <children>
       <StackPane layoutY="-2.0" prefHeight="500.0" prefWidth="674.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -35,6 +36,15 @@
               <items>
                 <AnchorPane fx:id="searchview" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
                      <children>
+                        <ImageView fx:id="logoImage" layoutX="30.0" layoutY="40.0" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" smooth="true">
+                           <image>
+                              <Image url="@../recipesearch/resources/logo.png" />
+                           </image>
+                        </ImageView>
+
+                        <Label fx:id="logoLabel1" layoutX="90.0" layoutY="43.0" prefHeight="17.0" prefWidth="289.0" text="Recept" />
+                        <Label fx:id="logoLabel2" layoutX="160.0" layoutY="50.0" prefHeight="17.0" prefWidth="289.0" text="sök" />
+
                         <ComboBox fx:id="comboBoxIngrediens" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
                         <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
                         <RadioButton fx:id="radiobutton1" layoutX="116.0" layoutY="259.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="44.0" text="Alla" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="72.0" />
@@ -43,12 +53,12 @@
                         <RadioButton fx:id="radiobutton4" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="68.0" />
                         <Spinner fx:id="spinnerid" layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="43.0" />
                         <Slider fx:id="slider" layoutX="106.0" layoutY="432.0" majorTickUnit="10.0" max="150.0" min="10.0" minorTickCount="10" prefHeight="16.0" prefWidth="120.0" snapToTicks="true" value="150.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="6.0" />
-                        <Label layoutX="15.0" layoutY="53.0" prefHeight="87.0" prefWidth="216.0" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="1.0" />
-                        <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" text="Huvudingrediens:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="15.0" layoutY="200.0" prefHeight="26.0" prefWidth="26.0" text="Kök:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="15.0" layoutY="259.0" text="Svårighetsgrad:" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="15.0" layoutY="380.0" prefHeight="17.0" prefWidth="48.0" text="Maxpris:" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="130.0" />
-                        <Label layoutX="24.0" layoutY="431.0" prefHeight="17.0" prefWidth="44.0" text="Maxtid:" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="15.0" layoutY="53.0" prefHeight="87.0" prefWidth="216.0" styleClass="text-larger" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="1.0" />
+                        <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" styleClass="text-normal" text="Huvudingrediens:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="15.0" layoutY="200.0" prefHeight="26.0" prefWidth="26.0" styleClass="text-normal" text="Kök:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="15.0" layoutY="259.0" styleClass="text-normal" text="Svårighetsgrad:" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="15.0" layoutY="380.0" prefHeight="17.0" prefWidth="48.0" styleClass="text-normal" text="Maxpris:" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="24.0" layoutY="431.0" prefHeight="17.0" prefWidth="44.0" styleClass="text-normal" text="Maxtid:" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="130.0" />
                         <Label layoutX="190.0" layoutY="380.0" text="kr" AnchorPane.rightAnchor="31.5" />
                         <Label fx:id="timelabel" layoutX="175.0" layoutY="448.0" text="150" AnchorPane.rightAnchor="15.5" />
                      </children>
