@@ -1,12 +1,25 @@
 .text-normal{
-     -fx-font-size: 13px;
-     -fx-font-family: "Avenir Book";
- }
- .text-smaller{
-      -fx-font-size: 11px;
-      -fx-font-family: "Avenir Book";
-  }
-  .text-larger{
-       -fx-font-size: 15px;
-       -fx-font-family: "Avenir Book";
-   }
+    -fx-font-size: 13px;
+    -fx-font-family: "Avenir Book";
+}
+.text-smaller{
+    -fx-font-size: 11px;
+    -fx-font-family: "Avenir Book";
+}
+.text-larger{
+    -fx-font-size: 15px;
+    -fx-font-family: "Avenir Book";
+}
+
+/* If fonts dont work on both mac and windows, just use Comic Sans MS instead */
+.logo{
+    -fx-font-size: 39px;
+    -fx-font-family: Algerian;
+}
+.logo-twirl{
+    -fx-font-size: 35px;
+    -fx-font-family: "Lucida Handwriting";
+    -fx-rotate: -12;
+    -fx-text-fill: #FFAC33;
+}
+
