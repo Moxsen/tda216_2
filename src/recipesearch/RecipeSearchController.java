@@ -52,6 +52,22 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private AnchorPane searchview;
 
+    @FXML
+    private ImageView cuisineflag;
+    @FXML
+    private ImageView image1;
+    @FXML
+    private ImageView image2;
+    @FXML
+    private ImageView image3;
+    @FXML
+    private Label label1;
+    @FXML
+    private Label label2;
+
+
+
+
     private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
     RecipeBackendController backendController = new RecipeBackendController();
 
