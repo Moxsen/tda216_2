@@ -357,7 +357,7 @@ public class RecipeSearchController implements Initializable {
     public void populateRecipeDetailView(Recipe recipe) {
         detailslabel.setText(recipe.getName());
         detailsimage.setImage(recipe.getFXImage());
-
+        cuisineflag.setImage(getCuisineImage(recipe.getCuisine()));
     }
 
     private void setImageRadioButton(String s, RadioButton radioButton2) {
