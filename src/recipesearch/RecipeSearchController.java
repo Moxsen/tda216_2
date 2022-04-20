@@ -5,12 +5,12 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.util.Callback;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
 import java.net.URL;
@@ -24,7 +24,7 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private FlowPane flowpane1;
     @FXML
-    private ComboBox comboBoxIngrediens;
+    private ComboBox mainIngredientComboBox;
     @FXML
     private ComboBox comboBoxCuisine;
     @FXML
@@ -67,20 +67,7 @@ public class RecipeSearchController implements Initializable {
 
         /*for main ingredient */
 
-        comboBoxIngrediens.getItems().addAll(
-                "Visa alla",
-                "Kött",
-                "Fisk",
-                "Kyckling",
-                "Vegetarisk");
-        comboBoxIngrediens.getSelectionModel().select("Visa alla");
-        comboBoxIngrediens.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                backendController.setMainIngredient(newValue);
-                updateRecipeList(backendController);
-            }
-        });
+        initializeIngredientComboBox();
 
         /*for Cuisine*/
 
@@ -174,6 +161,80 @@ public class RecipeSearchController implements Initializable {
         });
 
     }
+
+    private void initializeIngredientComboBox(ComboBox comboBox) {
+        comboBox.getItems().addAll(
+                "Visa alla",
+                "Kött",
+                "Fisk",
+                "Kyckling",
+                "Vegetarisk");
+
+        comboBox.getSelectionModel().select("Visa alla");
+        comboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                backendController.setMainIngredient(newValue);
+                updateRecipeList(backendController);
+            }
+        });
+        populateMainIngredientComboBox();
+    }
+
+    private void populateMainIngredientComboBox() {
+        Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
+
+            @Override
+            public ListCell<String> call(ListView<String> p) {
+
+                return new ListCell<String>() {
+
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        setText(item);
+
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            Image icon = null;
+                            String iconPath;
+                            try {
+                                switch (item) {
+
+                                    case "Kött":
+                                        iconPath = "RecipeSearch/resources/icon_main_meat.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Fisk":
+                                        iconPath = "RecipeSearch/resources/icon_main_fish.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Kyckling":
+                                        iconPath = "RecipeSearch/resources/icon_main_chicken.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Vegetarisk":
+                                        iconPath = "RecipeSearch/resources/icon_main_veg.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                }
+                            } catch (NullPointerException ex) {
+                                //This should never happen in this lab but could load a default image in case of a NullPointer
+                            }
+                            ImageView iconImageView = new ImageView(icon);
+                            iconImageView.setFitHeight(12);
+                            iconImageView.setPreserveRatio(true);
+                            setGraphic(iconImageView);
+                        }
+                    }
+                };
+            }
+        };
+        mainIngredientComboBox.setButtonCell(cellFactory.call(null));
+        mainIngredientComboBox.setCellFactory(cellFactory);
+    };
 
     public void populateRecipeDetailView(Recipe recipe) {
         detailslabel.setText(recipe.getName());
