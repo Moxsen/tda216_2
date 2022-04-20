@@ -66,7 +66,7 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private Label ingredientsLabel;
     @FXML
-    private ImageView closeImageViewButton;
+    private ImageView closeImageView;
 
 
 
@@ -403,15 +403,16 @@ public class RecipeSearchController implements Initializable {
 
 
     public void closeButtonMouseEntered(){
-        closeImageViewButton.setImage(new Image("RecipeSearch/resources/icon_close_hover.png"));
+        closeImageView.setImage(new Image("RecipeSearch/resources/icon_close_hover.png"));
     }
 
     public void closeButtonMousePressed(){
-        closeImageViewButton.setImage(new Image("RecipeSearch/resources/icon_close_pressed.png"));
+        closeImageView.setImage(new Image("RecipeSearch/resources/icon_close_pressed.png"));
+        closeRecipeView();
     }
 
     public void closeButtonMouseExited(){
-        closeImageViewButton.setImage(new Image("RecipeSearch/resources/icon_close.png"));
+        closeImageView.setImage(new Image("RecipeSearch/resources/icon_close.png"));
     }
 
     // Recipe
