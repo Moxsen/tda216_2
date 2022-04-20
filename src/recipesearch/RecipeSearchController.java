@@ -55,6 +55,7 @@ public class RecipeSearchController implements Initializable {
     private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
     RecipeBackendController backendController = new RecipeBackendController();
 
+    // Intilize views and components
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -64,6 +65,10 @@ public class RecipeSearchController implements Initializable {
         }
         updateRecipeList(backendController);
 
+        initializeRecipeSearchView();
+    }
+
+    private void initializeRecipeSearchView() {
         /*for main ingredient */
         initializeIngredientComboBox(mainIngredientComboBox);
 
@@ -78,8 +83,8 @@ public class RecipeSearchController implements Initializable {
 
         /* for slider */
         intializeSlider(slider);
-
     }
+
 
     private void intializeSlider(Slider slider) {
         slider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -148,13 +153,6 @@ public class RecipeSearchController implements Initializable {
         });
     }
 
-    private void setImageRadioButton(String s, RadioButton radioButton2) {
-        ImageView imageViewDiffEasy = new ImageView(s);
-        imageViewDiffEasy.setFitHeight(12);
-        imageViewDiffEasy.setPreserveRatio(true);
-        radioButton2.setGraphic(imageViewDiffEasy);
-    }
-
     private void initializeCuisineComboBox(ComboBox comboBox) {
         comboBox.getItems().addAll(
                 "Visa alla",
@@ -194,7 +192,7 @@ public class RecipeSearchController implements Initializable {
         });
         populateMainIngredientComboBox();
     }
-
+// Initialization utils
     private void populateMainIngredientComboBox() {
         Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
 
@@ -322,7 +320,19 @@ public class RecipeSearchController implements Initializable {
         detailsimage.setImage(recipe.getFXImage());
     }
 
-    @FXML
+    private void setImageRadioButton(String s, RadioButton radioButton2) {
+        ImageView imageViewDiffEasy = new ImageView(s);
+        imageViewDiffEasy.setFitHeight(12);
+        imageViewDiffEasy.setPreserveRatio(true);
+        radioButton2.setGraphic(imageViewDiffEasy);
+    }
+
+    private void updateTimeLabel(Integer time) {
+        timelabel.setText(time.toString() + " min");
+    }
+
+
+    // View interactions
     public void closeRecipeView(){
         recipedetails.toBack();
     }
@@ -331,11 +341,7 @@ public class RecipeSearchController implements Initializable {
         populateRecipeDetailView(recipe);
         recipedetails.toFront();
     }
-
-    private void updateTimeLabel(Integer time) {
-        timelabel.setText(time.toString() + " min");
-    }
-
+// Recipe
     private void updateRecipeList(RecipeBackendController recipeBC) {
         //System.out.println(recipeBC);
         flowpane1.getChildren().clear();
