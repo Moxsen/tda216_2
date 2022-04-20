@@ -62,23 +62,44 @@ public class RecipeSearchController implements Initializable {
             RecipeListItem recipeListItem = new RecipeListItem(recipe, this);
             recipeListItemMap.put(recipe.getName(), recipeListItem);
         }
-        updateTimeLabel(slider.valueProperty().intValue());
         updateRecipeList(backendController);
 
         /*for main ingredient */
-
         initializeIngredientComboBox(mainIngredientComboBox);
+
         /*for Cuisine*/
-        initializeCuisineComboBox();
+        initializeCuisineComboBox(cuisineComboBox);
 
         /*for Radio button*/
-        initializeRadioButtons();
+        initializeRadioButtons(radiobutton1, radiobutton2, radiobutton3, radiobutton4);
 
         /* for spinner */
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 600, 0, 10);
-        spinnerid.setValueFactory(valueFactory);
-        spinnerid.setEditable(true);
-        spinnerid.valueProperty().addListener(new ChangeListener<Integer>() {
+        initializeSpinner(spinnerid);
+
+        /* for slider */
+        intializeSlider(slider);
+
+    }
+
+    private void intializeSlider(Slider slider) {
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number newValue) {
+                int value = (newValue.intValue() / 10) * 10;
+                backendController.setMaxPrice(value);
+                updateRecipeList(backendController);
+                updateTimeLabel(value);
+            }
+        });
+
+        updateTimeLabel(slider.valueProperty().intValue());
+    }
+
+    private void initializeSpinner(Spinner spinner) {
+        spinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 600, 0, 10));
+        spinner.setEditable(true);
+
+        spinner.valueProperty().addListener(new ChangeListener<Integer>() {
             @Override
             public void changed(ObservableValue<? extends Integer> observableValue, Integer oldValue, Integer newValue) {
                 backendController.setMaxPrice(newValue);
@@ -99,43 +120,22 @@ public class RecipeSearchController implements Initializable {
 
             }
         });
-        /* for slider */
-
-        slider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number newValue) {
-                int value = (newValue.intValue() / 10) * 10;
-                backendController.setMaxPrice(value);
-                updateRecipeList(backendController);
-                updateTimeLabel(value);
-            }
-        });
 
     }
 
-    private void initializeRadioButtons() {
-        ImageView imageViewDiffEasy = new ImageView("recipesearch/resources/icon_difficulty_easy.png");
-        imageViewDiffEasy.setFitHeight(12);
-        imageViewDiffEasy.setPreserveRatio(true);
-        radiobutton2.setGraphic(imageViewDiffEasy);
+    private void initializeRadioButtons(RadioButton radioButton1, RadioButton radioButton2, RadioButton radioButton3, RadioButton radioButton4) {
+        ToggleGroup difficultyToggleGroup = new ToggleGroup();
+        radioButton1.setToggleGroup(difficultyToggleGroup);
+        radioButton2.setToggleGroup(difficultyToggleGroup);
+        radioButton3.setToggleGroup(difficultyToggleGroup);
+        radioButton4.setToggleGroup(difficultyToggleGroup);
 
-        ImageView imageViewDiffMedium = new ImageView("recipesearch/resources/icon_difficulty_medium.png");
-        imageViewDiffMedium.setFitHeight(12);
-        imageViewDiffMedium.setPreserveRatio(true);
-        radiobutton3.setGraphic(imageViewDiffMedium);
+        radioButton1.setSelected(true);
 
-        ImageView imageViewDiffHard = new ImageView("recipesearch/resources/icon_difficulty_hard.png");
-        imageViewDiffHard.setFitHeight(12);
-        imageViewDiffHard.setPreserveRatio(true);
-        radiobutton4.setGraphic(imageViewDiffHard);
+        setImageRadioButton("recipesearch/resources/icon_difficulty_easy.png", radioButton2);
+        setImageRadioButton("recipesearch/resources/icon_difficulty_medium.png", radioButton3);
+        setImageRadioButton("recipesearch/resources/icon_difficulty_hard.png", radioButton4);
 
-        ToggleGroup difficultyToggleGroup;
-        difficultyToggleGroup = new ToggleGroup();
-        radiobutton1.setToggleGroup(difficultyToggleGroup);
-        radiobutton2.setToggleGroup(difficultyToggleGroup);
-        radiobutton3.setToggleGroup(difficultyToggleGroup);
-        radiobutton4.setToggleGroup(difficultyToggleGroup);
-        radiobutton1.setSelected(true);
         difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
@@ -148,8 +148,15 @@ public class RecipeSearchController implements Initializable {
         });
     }
 
-    private void initializeCuisineComboBox() {
-        cuisineComboBox.getItems().addAll(
+    private void setImageRadioButton(String s, RadioButton radioButton2) {
+        ImageView imageViewDiffEasy = new ImageView(s);
+        imageViewDiffEasy.setFitHeight(12);
+        imageViewDiffEasy.setPreserveRatio(true);
+        radioButton2.setGraphic(imageViewDiffEasy);
+    }
+
+    private void initializeCuisineComboBox(ComboBox comboBox) {
+        comboBox.getItems().addAll(
                 "Visa alla",
                 "Sverige",
                 "Grekland",
@@ -158,8 +165,8 @@ public class RecipeSearchController implements Initializable {
                 "Afrika",
                 "Frankrike"
         );
-        cuisineComboBox.getSelectionModel().select("Visa alla");
-        cuisineComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        comboBox.getSelectionModel().select("Visa alla");
+        comboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setCuisine(newValue);
@@ -325,23 +332,17 @@ public class RecipeSearchController implements Initializable {
         recipedetails.toFront();
     }
 
-
-
     private void updateTimeLabel(Integer time) {
         timelabel.setText(time.toString() + " min");
     }
-
 
     private void updateRecipeList(RecipeBackendController recipeBC) {
         //System.out.println(recipeBC);
         flowpane1.getChildren().clear();
 
-        for (Recipe recipe : recipeBC.getRecipes()
-        ) {
-            //System.out.println(recipe.getPrice());
+        for (Recipe recipe : recipeBC.getRecipes()) {
             flowpane1.getChildren().add(recipeListItemMap.get(recipe.getName()));
         }
-
     }
 }
 
