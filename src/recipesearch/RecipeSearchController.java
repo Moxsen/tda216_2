@@ -65,6 +65,8 @@ public class RecipeSearchController implements Initializable {
     private Label instructionLabel;
     @FXML
     private Label ingredientsLabel;
+    @FXML
+    private Label closeImageViewButton;
 
 
 
@@ -376,7 +378,7 @@ public class RecipeSearchController implements Initializable {
         label1.setText(Integer.toString(recipe.getTime()));
         label2.setText(Integer.toString(recipe.getPrice()));
 
-        System.out.println(recipe.getDifficulty());
+
         }
 
     private String concatenateStrings(List<Ingredient> listIngredients, String divider) {
@@ -396,6 +398,25 @@ public class RecipeSearchController implements Initializable {
     public void openRecipeView(Recipe recipe){
         populateRecipeDetailView(recipe);
         recipedetails.toFront();
+    }
+
+
+    @FXML
+    public void closeButtonMouseEntered(){
+        closeImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "RecipeSearch/resources/icon_close_hover.png")));
+    }
+
+    @FXML
+    public void closeButtonMousePressed(){
+        closeImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "RecipeSearch/resources/icon_close_pressed.png")));
+    }
+
+    @FXML
+    public void closeButtonMouseExited(){
+        closeImageView.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                "RecipeSearch/resources/icon_close.png")));
     }
 
     // Recipe
