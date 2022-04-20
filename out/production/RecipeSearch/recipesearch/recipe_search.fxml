@@ -24,21 +24,17 @@
          <children>
             <Button fx:id="detailsbutton" layoutX="547.0" layoutY="384.0" mnemonicParsing="false" onAction="#closeRecipeView" prefHeight="26.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="52.0" AnchorPane.rightAnchor="29.0" />
             <ImageView fx:id="detailsimage" fitHeight="194.0" fitWidth="224.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="269.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="-1.0" />
-            <Label fx:id="detailslabel" layoutX="288.0" layoutY="14.0" prefHeight="17.0" prefWidth="289.0" text="Recepe Detals" />
+            <Label fx:id="detailslabel" layoutX="288.0" layoutY="14.0" prefHeight="17.0" prefWidth="289.0" styleClass="text-larger" text="Recepe Detals" />
             <ImageView fx:id="cuisineflag" fitHeight="26.0" fitWidth="44.0" layoutX="155.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="image1" fitHeight="35.0" fitWidth="44.0" layoutX="240.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="image2" fitHeight="35.0" fitWidth="86.0" layoutX="296.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="16.5" layoutX="255.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" smooth="true">
-               <image>
-                  <Image url="@../recipesearch/resources/icon_time.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="label1" layoutX="441.0" layoutY="43.0" text="Label" />
-            <Label fx:id="label2" layoutX="487.0" layoutY="43.0" text="Label" />
-            <Label fx:id="descriptionLabel" layoutX="255.0" layoutY="88.0" prefHeight="53.0" prefWidth="380.0" text="Label" />
-            <Label layoutX="255.0" layoutY="146.0" prefHeight="26.0" prefWidth="71.0" text="Tillagning:" />
-            <Label layoutX="36.0" layoutY="202.0" prefHeight="26.0" prefWidth="104.0" text="Ingredienser:" />
-            <Label fx:id="ingredientsLabel" layoutX="19.0" layoutY="236.0" prefHeight="194.0" prefWidth="157.0" text="Label" />
+            <ImageView fx:id="image3" fitHeight="26.0" fitWidth="29.0" layoutX="377.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="label1" layoutX="441.0" layoutY="43.0" styleClass="text-normal" text="Label" />
+            <Label fx:id="label2" layoutX="487.0" layoutY="43.0" styleClass="text-normal" text="Label" />
+            <Label fx:id="descriptionLabel" layoutX="255.0" layoutY="88.0" prefHeight="53.0" prefWidth="380.0" styleClass="text-normal" text="Label" />
+            <Label fx:id="tillagninglabel" layoutX="255.0" layoutY="146.0" prefHeight="26.0" prefWidth="71.0" styleClass="text-larger" text="Tillagning:" />
+            <Label fx:id="ingredienser" layoutX="36.0" layoutY="202.0" prefHeight="26.0" prefWidth="104.0" styleClass="text-larger" text="Ingredienser:" />
+            <Label fx:id="ingredientsLabel" layoutX="19.0" layoutY="236.0" prefHeight="194.0" prefWidth="157.0" styleClass="text-normal" text="Label" />
             <Label fx:id="instructionLabel" layoutX="205.0" layoutY="207.0" prefHeight="187.0" prefWidth="444.0" text="Label" />
          </children>
       </AnchorPane>
