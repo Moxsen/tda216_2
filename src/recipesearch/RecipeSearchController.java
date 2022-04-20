@@ -66,6 +66,30 @@ public class RecipeSearchController implements Initializable {
         updateRecipeList(backendController);
 
         initializeRecipeSearchView();
+        initializeRecipeListItemView();
+    }
+
+    private void initializeRecipeListItemView() {
+        initalizeFoodImageView();
+        initalizeCuisineImageView();
+        initializeRecipeInstructionText();
+        IntializeRecipeDetails();
+
+    }
+
+    private void IntializeRecipeDetails() {
+
+    }
+
+    private void initializeRecipeInstructionText() {
+
+    }
+
+    private void initalizeCuisineImageView() {
+    }
+
+    private void initalizeFoodImageView() {
+
     }
 
     private void initializeRecipeSearchView() {
@@ -82,11 +106,11 @@ public class RecipeSearchController implements Initializable {
         initializeSpinner(spinnerid);
 
         /* for slider */
-        intializeSlider(slider);
+        initializeSlider(slider);
     }
 
 
-    private void intializeSlider(Slider slider) {
+    private void initializeSlider(Slider slider) {
         slider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number newValue) {
@@ -268,37 +292,8 @@ public class RecipeSearchController implements Initializable {
                             Image icon = null;
                             String iconPath;
                             try {
-                                switch (item) {
+                                icon = getCuisineImage(item);
 
-                                    case "Sverige":
-                                        iconPath = "RecipeSearch/resources/icon_flag_sweden.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Tyskland":
-                                        iconPath = "RecipeSearch/resources/icon_flag_germany.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Grekland":
-                                        iconPath = "RecipeSearch/resources/icon_flag_greece.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Afrika":
-                                        iconPath = "RecipeSearch/resources/icon_flag_africa.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Asien":
-                                        iconPath = "RecipeSearch/resources/icon_flag_asia.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Frankrike":
-                                        iconPath = "RecipeSearch/resources/icon_flag_france.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Indien":
-                                        iconPath = "RecipeSearch/resources/icon_flag_india.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                }
                             } catch (NullPointerException ex) {
                                 //This should never happen in this lab but could load a default image in case of a NullPointer
                             }
@@ -315,9 +310,38 @@ public class RecipeSearchController implements Initializable {
         cuisineComboBox.setCellFactory(cellFactory);
     };
 
+    public Image getCuisineImage(String cuisine) {
+        String iconPath;
+        switch (cuisine) {
+            case "Sverige":
+                iconPath = "RecipeSearch/resources/icon_flag_sweden.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Tyskland":
+                iconPath = "RecipeSearch/resources/icon_flag_germany.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Grekland":
+                iconPath = "RecipeSearch/resources/icon_flag_greece.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Afrika":
+                iconPath = "RecipeSearch/resources/icon_flag_africa.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Asien":
+                iconPath = "RecipeSearch/resources/icon_flag_asia.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Frankrike":
+                iconPath = "RecipeSearch/resources/icon_flag_france.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Indien":
+                iconPath = "RecipeSearch/resources/icon_flag_india.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+        }
+        return null;
+    }
+
     public void populateRecipeDetailView(Recipe recipe) {
         detailslabel.setText(recipe.getName());
         detailsimage.setImage(recipe.getFXImage());
+
     }
 
     private void setImageRadioButton(String s, RadioButton radioButton2) {
@@ -330,7 +354,6 @@ public class RecipeSearchController implements Initializable {
     private void updateTimeLabel(Integer time) {
         timelabel.setText(time.toString() + " min");
     }
-
 
     // View interactions
     public void closeRecipeView(){
