@@ -11,10 +11,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.util.Callback;
+import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -51,7 +53,6 @@ public class RecipeSearchController implements Initializable {
     private AnchorPane recipedetails;
     @FXML
     private AnchorPane searchview;
-
     @FXML
     private ImageView cuisineflag;
     @FXML
@@ -82,32 +83,10 @@ public class RecipeSearchController implements Initializable {
         updateRecipeList(backendController);
 
         initializeRecipeSearchView();
-        initializeRecipeListItemView();
+        initializeRecipeDetailView();
     }
 
-    private void initializeRecipeListItemView() {
-        initalizeFoodImageView();
-        initalizeCuisineImageView();
-        initializeRecipeInstructionText();
-        IntializeRecipeDetails();
-
-    }
-
-    private void IntializeRecipeDetails() {
-
-    }
-
-    private void initializeRecipeInstructionText() {
-
-    }
-
-    private void initalizeCuisineImageView() {
-    }
-
-    private void initalizeFoodImageView() {
-
-    }
-
+    // Init main view
     private void initializeRecipeSearchView() {
         /*for main ingredient */
         initializeIngredientComboBox(mainIngredientComboBox);
@@ -124,7 +103,6 @@ public class RecipeSearchController implements Initializable {
         /* for slider */
         initializeSlider(slider);
     }
-
 
     private void initializeSlider(Slider slider) {
         slider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -232,7 +210,32 @@ public class RecipeSearchController implements Initializable {
         });
         populateMainIngredientComboBox();
     }
-// Initialization utils
+
+    private void initializeRecipeDetailView() {
+        initalizeFoodImageView();
+        initalizeCuisineImageView();
+        initializeRecipeInstructionText();
+        IntializeRecipeDetails();
+
+    }
+
+    //Init detailed view
+    private void IntializeRecipeDetails() {
+
+    }
+
+    private void initializeRecipeInstructionText() {
+
+    }
+
+    private void initalizeCuisineImageView() {
+    }
+
+    private void initalizeFoodImageView() {
+
+    }
+
+    // Initialization utils
     private void populateMainIngredientComboBox() {
         Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
 
@@ -253,25 +256,7 @@ public class RecipeSearchController implements Initializable {
                             Image icon = null;
                             String iconPath;
                             try {
-                                switch (item) {
-
-                                    case "Kött":
-                                        iconPath = "RecipeSearch/resources/icon_main_meat.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Fisk":
-                                        iconPath = "RecipeSearch/resources/icon_main_fish.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Kyckling":
-                                        iconPath = "RecipeSearch/resources/icon_main_chicken.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                    case "Vegetarisk":
-                                        iconPath = "RecipeSearch/resources/icon_main_veg.png";
-                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
-                                        break;
-                                }
+                                icon = getMainIngredientImage(item);
                             } catch (NullPointerException ex) {
                                 //This should never happen in this lab but could load a default image in case of a NullPointer
                             }
@@ -354,10 +339,23 @@ public class RecipeSearchController implements Initializable {
         return null;
     }
 
-    public void populateRecipeDetailView(Recipe recipe) {
-        detailslabel.setText(recipe.getName());
-        detailsimage.setImage(recipe.getFXImage());
-        cuisineflag.setImage(getCuisineImage(recipe.getCuisine()));
+    private Image getMainIngredientImage(String item) {
+        String iconPath;
+        switch (item) {
+            case "Kött":
+                iconPath = "RecipeSearch/resources/icon_main_meat.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Fisk":
+                iconPath = "RecipeSearch/resources/icon_main_fish.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Kyckling":
+                iconPath = "RecipeSearch/resources/icon_main_chicken.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Vegetarisk":
+                iconPath = "RecipeSearch/resources/icon_main_veg.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+        }
+        return null;
     }
 
     private void setImageRadioButton(String s, RadioButton radioButton2) {
@@ -371,6 +369,31 @@ public class RecipeSearchController implements Initializable {
         timelabel.setText(time.toString() + " min");
     }
 
+    public void populateRecipeDetailView(Recipe recipe) {
+        detailslabel.setText(recipe.getName());
+        detailsimage.setImage(recipe.getFXImage());
+        cuisineflag.setImage(getCuisineImage(recipe.getCuisine()));
+        image1.setImage(getMainIngredientImage(recipe.getMainIngredient()));
+        descriptionlabel.setText(recipe.getDescription());
+        instructonlabel.setText(recipe.getInstruction());
+        System.out.println(concatenateStrings(recipe.getIngredients(), "\n"));
+
+        System.out.println(recipe.getDescription());
+        System.out.println(recipe.getInstruction());
+        label1.setText(Integer.toString(recipe.getTime()));
+        label2.setText(Integer.toString(recipe.getPrice()));
+
+    }
+
+    private String concatenateStrings(List<Ingredient> listIngredients, String divider) {
+        String result = "";
+        for (Ingredient ingredient : listIngredients) {
+            result = result + ingredient + divider;
+
+        }
+        return result;
+    }
+
     // View interactions
     public void closeRecipeView(){
         recipedetails.toBack();
@@ -380,7 +403,10 @@ public class RecipeSearchController implements Initializable {
         populateRecipeDetailView(recipe);
         recipedetails.toFront();
     }
-// Recipe
+
+
+
+    // Recipe
     private void updateRecipeList(RecipeBackendController recipeBC) {
         //System.out.println(recipeBC);
         flowpane1.getChildren().clear();
