@@ -26,7 +26,7 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private ComboBox mainIngredientComboBox;
     @FXML
-    private ComboBox CuisineComboBox;
+    private ComboBox cuisineComboBox;
     @FXML
     private RadioButton radiobutton1;
     @FXML
@@ -68,60 +68,11 @@ public class RecipeSearchController implements Initializable {
         /*for main ingredient */
 
         initializeIngredientComboBox(mainIngredientComboBox);
-
         /*for Cuisine*/
-
-        CuisineComboBox.getItems().addAll(
-                "Visa alla",
-                "Sverige",
-                "Grekland",
-                "Indien",
-                "Asien",
-                "Afrika",
-                "Frankrike"
-        );
-        CuisineComboBox.getSelectionModel().select("Visa alla");
-        CuisineComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                backendController.setCuisine(newValue);
-                updateRecipeList(backendController);
-            }
-        });
+        initializeCuisineComboBox();
 
         /*for Radio button*/
-        ImageView imageViewDiffEasy = new ImageView("recipesearch/resources/icon_difficulty_easy.png");
-        imageViewDiffEasy.setFitHeight(12);
-        imageViewDiffEasy.setPreserveRatio(true);
-        radiobutton2.setGraphic(imageViewDiffEasy);
-
-        ImageView imageViewDiffMedium = new ImageView("recipesearch/resources/icon_difficulty_medium.png");
-        imageViewDiffMedium.setFitHeight(12);
-        imageViewDiffMedium.setPreserveRatio(true);
-        radiobutton3.setGraphic(imageViewDiffMedium);
-
-        ImageView imageViewDiffHard = new ImageView("recipesearch/resources/icon_difficulty_hard.png");
-        imageViewDiffHard.setFitHeight(12);
-        imageViewDiffHard.setPreserveRatio(true);
-        radiobutton4.setGraphic(imageViewDiffHard);
-
-        ToggleGroup difficultyToggleGroup;
-        difficultyToggleGroup = new ToggleGroup();
-        radiobutton1.setToggleGroup(difficultyToggleGroup);
-        radiobutton2.setToggleGroup(difficultyToggleGroup);
-        radiobutton3.setToggleGroup(difficultyToggleGroup);
-        radiobutton4.setToggleGroup(difficultyToggleGroup);
-        radiobutton1.setSelected(true);
-        difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                if (difficultyToggleGroup.getSelectedToggle() != null) {
-                    RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
-                    backendController.setDifficulty(selected.getText());
-                    updateRecipeList(backendController);
-                }
-            }
-        });
+        initializeRadioButtons();
 
         /* for spinner */
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 600, 0, 10);
@@ -160,6 +111,62 @@ public class RecipeSearchController implements Initializable {
             }
         });
 
+    }
+
+    private void initializeRadioButtons() {
+        ImageView imageViewDiffEasy = new ImageView("recipesearch/resources/icon_difficulty_easy.png");
+        imageViewDiffEasy.setFitHeight(12);
+        imageViewDiffEasy.setPreserveRatio(true);
+        radiobutton2.setGraphic(imageViewDiffEasy);
+
+        ImageView imageViewDiffMedium = new ImageView("recipesearch/resources/icon_difficulty_medium.png");
+        imageViewDiffMedium.setFitHeight(12);
+        imageViewDiffMedium.setPreserveRatio(true);
+        radiobutton3.setGraphic(imageViewDiffMedium);
+
+        ImageView imageViewDiffHard = new ImageView("recipesearch/resources/icon_difficulty_hard.png");
+        imageViewDiffHard.setFitHeight(12);
+        imageViewDiffHard.setPreserveRatio(true);
+        radiobutton4.setGraphic(imageViewDiffHard);
+
+        ToggleGroup difficultyToggleGroup;
+        difficultyToggleGroup = new ToggleGroup();
+        radiobutton1.setToggleGroup(difficultyToggleGroup);
+        radiobutton2.setToggleGroup(difficultyToggleGroup);
+        radiobutton3.setToggleGroup(difficultyToggleGroup);
+        radiobutton4.setToggleGroup(difficultyToggleGroup);
+        radiobutton1.setSelected(true);
+        difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                if (difficultyToggleGroup.getSelectedToggle() != null) {
+                    RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
+                    backendController.setDifficulty(selected.getText());
+                    updateRecipeList(backendController);
+                }
+            }
+        });
+    }
+
+    private void initializeCuisineComboBox() {
+        cuisineComboBox.getItems().addAll(
+                "Visa alla",
+                "Sverige",
+                "Grekland",
+                "Indien",
+                "Asien",
+                "Afrika",
+                "Frankrike"
+        );
+        cuisineComboBox.getSelectionModel().select("Visa alla");
+        cuisineComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                backendController.setCuisine(newValue);
+                updateRecipeList(backendController);
+            }
+        });
+        populateCuisineComboBox();
     }
 
     private void initializeIngredientComboBox(ComboBox comboBox) {
@@ -234,6 +241,73 @@ public class RecipeSearchController implements Initializable {
         };
         mainIngredientComboBox.setButtonCell(cellFactory.call(null));
         mainIngredientComboBox.setCellFactory(cellFactory);
+    };
+
+    private void populateCuisineComboBox() {
+        Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
+
+            @Override
+            public ListCell<String> call(ListView<String> p) {
+
+                return new ListCell<String>() {
+
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        setText(item);
+
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            Image icon = null;
+                            String iconPath;
+                            try {
+                                switch (item) {
+
+                                    case "Sverige":
+                                        iconPath = "RecipeSearch/resources/icon_flag_sweden.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Tyskland":
+                                        iconPath = "RecipeSearch/resources/icon_flag_germany.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Grekland":
+                                        iconPath = "RecipeSearch/resources/icon_flag_greece.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Afrika":
+                                        iconPath = "RecipeSearch/resources/icon_flag_africa.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Asien":
+                                        iconPath = "RecipeSearch/resources/icon_flag_asia.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Frankrike":
+                                        iconPath = "RecipeSearch/resources/icon_flag_france.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                    case "Indien":
+                                        iconPath = "RecipeSearch/resources/icon_flag_india.png";
+                                        icon = new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+                                        break;
+                                }
+                            } catch (NullPointerException ex) {
+                                //This should never happen in this lab but could load a default image in case of a NullPointer
+                            }
+                            ImageView iconImageView = new ImageView(icon);
+                            iconImageView.setFitHeight(12);
+                            iconImageView.setPreserveRatio(true);
+                            setGraphic(iconImageView);
+                        }
+                    }
+                };
+            }
+        };
+        cuisineComboBox.setButtonCell(cellFactory.call(null));
+        cuisineComboBox.setCellFactory(cellFactory);
     };
 
     public void populateRecipeDetailView(Recipe recipe) {
