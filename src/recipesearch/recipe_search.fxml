@@ -90,6 +90,7 @@
             </ImageView>
             <Label fx:id="label1" layoutX="441.0" layoutY="43.0" styleClass="text-normal" text="Tid" />
             <Label fx:id="label2" layoutX="487.0" layoutY="43.0" styleClass="text-normal" text="Kr" />
+            <Label layoutX="507.0" layoutY="43.0" styleClass="text-normal" text="Kr" />
             <Label fx:id="descriptionLabel" layoutX="255.0" layoutY="88.0" prefHeight="35.0" prefWidth="331.0" styleClass="text-normal" wrapText="true" />
             <Label fx:id="tillagninglabel" layoutX="255.0" layoutY="146.0" prefHeight="26.0" prefWidth="71.0" styleClass="text-larger" text="Tillagning:" />
             <Label fx:id="ingredienser" layoutX="36.0" layoutY="202.0" prefHeight="26.0" prefWidth="104.0" styleClass="text-larger" text="Ingredienser:" />
