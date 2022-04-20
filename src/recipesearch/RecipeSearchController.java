@@ -5,7 +5,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -101,6 +103,20 @@ public class RecipeSearchController implements Initializable {
         });
 
         /*for Radio button*/
+        ImageView imageViewDiffEasy = new ImageView("recipesearch/resources/icon_difficulty_easy.png");
+        imageViewDiffEasy.setFitHeight(12);
+        imageViewDiffEasy.setPreserveRatio(true);
+        radiobutton2.setGraphic(imageViewDiffEasy);
+
+        ImageView imageViewDiffMedium = new ImageView("recipesearch/resources/icon_difficulty_medium.png");
+        imageViewDiffMedium.setFitHeight(12);
+        imageViewDiffMedium.setPreserveRatio(true);
+        radiobutton3.setGraphic(imageViewDiffMedium);
+
+        ImageView imageViewDiffHard = new ImageView("recipesearch/resources/icon_difficulty_hard.png");
+        imageViewDiffHard.setFitHeight(12);
+        imageViewDiffHard.setPreserveRatio(true);
+        radiobutton4.setGraphic(imageViewDiffHard);
 
         ToggleGroup difficultyToggleGroup;
         difficultyToggleGroup = new ToggleGroup();

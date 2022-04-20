@@ -23,3 +23,6 @@
     -fx-text-fill: #FFAC33;
 }
 
+.rb {
+    -fx-label-padding: 15;
+}

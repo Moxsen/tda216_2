@@ -53,15 +53,20 @@
                         <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
 
                         <Label layoutX="15.0" layoutY="259.0" styleClass="text-normal" text="Svårighetsgrad:" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="130.0" />
-                        <RadioButton fx:id="radiobutton1" layoutX="116.0" layoutY="259.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="44.0" text="Alla" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="72.0" />
-                        <RadioButton fx:id="radiobutton2" layoutX="116.0" layoutY="284.0" mnemonicParsing="false" text="Lätt" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="72.0" />
-                        <RadioButton fx:id="radiobutton3" layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="57.0" />
-                        <RadioButton fx:id="radiobutton4" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="68.0" />
+                        <RadioButton fx:id="radiobutton1" layoutX="116.0" layoutY="259.0" mnemonicParsing="false" text="Alla" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="72.0"/>
+                        <RadioButton fx:id="radiobutton2" layoutX="116.0" layoutY="284.0" mnemonicParsing="false" text="Lätt" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="72.0"/>
+                        <RadioButton fx:id="radiobutton3" layoutX="116.0" layoutY="309.0" mnemonicParsing="false" text="Mellan" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="57.0"/>
+                        <RadioButton fx:id="radiobutton4" layoutX="114.0" layoutY="333.0" mnemonicParsing="false" text="Svår" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="68.0"/>
 
                         <Label layoutX="15.0" layoutY="380.0" prefHeight="17.0" prefWidth="48.0" styleClass="text-normal" text="Maxpris:" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="130.0" />
                         <Spinner fx:id="spinnerid" layoutX="103.0" layoutY="375.0" prefHeight="26.0" prefWidth="86.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="43.0" />
                         <Label layoutX="190.0" layoutY="380.0" text="kr" AnchorPane.rightAnchor="31.5" />
 
+                        <ImageView fx:id="timeImage" layoutX="209.0" layoutY="447.0" fitHeight="16.5" pickOnBounds="true" preserveRatio="true" smooth="true">
+                           <image>
+                              <Image url="@../recipesearch/resources/icon_time.png" />
+                           </image>
+                        </ImageView>
                         <Label layoutX="24.0" layoutY="431.0" prefHeight="17.0" prefWidth="44.0" styleClass="text-normal" text="Maxtid:" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="130.0" />
                         <Slider fx:id="slider" layoutX="106.0" layoutY="432.0" majorTickUnit="10.0" max="150.0" min="10.0" minorTickCount="10" prefHeight="16.0" prefWidth="120.0" snapToTicks="true" value="150.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="6.0" />
                         <Label fx:id="timelabel" layoutX="175.0" layoutY="448.0" text="150" AnchorPane.rightAnchor="15.5" />
