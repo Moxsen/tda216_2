@@ -67,7 +67,7 @@ public class RecipeSearchController implements Initializable {
 
         /*for main ingredient */
 
-        initializeIngredientComboBox();
+        initializeIngredientComboBox(mainIngredientComboBox);
 
         /*for Cuisine*/
 

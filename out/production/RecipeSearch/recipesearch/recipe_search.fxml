@@ -47,7 +47,7 @@
                         <Label layoutX="15.0" layoutY="73.0" prefHeight="87.0" prefWidth="216.0" styleClass="text-larger" text="Hitta ett recept som passar genom att &#10;      ändra i inställningarna nedanför!" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="1.0" />
 
                         <Label layoutX="8.0" layoutY="168.0" prefHeight="17.0" prefWidth="98.0" styleClass="text-normal" text="Huvudingrediens:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
-                        <ComboBox fx:id="comboBoxIngrediens" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
+                        <ComboBox fx:id="mainIngredientComboBox" layoutX="60.0" layoutY="163.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
 
                         <Label layoutX="15.0" layoutY="200.0" prefHeight="26.0" prefWidth="26.0" styleClass="text-normal" text="Kök:" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" />
                         <ComboBox fx:id="comboBoxCuisine" layoutX="60.0" layoutY="204.0" prefHeight="26.0" prefWidth="120.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="5.0" />
