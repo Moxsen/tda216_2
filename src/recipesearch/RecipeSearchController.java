@@ -60,21 +60,19 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private ImageView image2;
     @FXML
-    private ImageView image3;
-    @FXML
     private Label label1;
     @FXML
     private Label label2;
     @FXML
-    private Label discriptionlabel;
+    private Label descriptionLabel;
     @FXML
     private Label tillagninglabel;
     @FXML
-    private Label instructionlabel;
+    private Label instructionLabel;
     @FXML
     private Label ingredienser;
     @FXML
-    private Label ingredinserlabel;
+    private Label ingredientsLabel;
 
 
 
@@ -226,19 +224,17 @@ public class RecipeSearchController implements Initializable {
     private void initializeRecipeDetailView() {
         initalizeFoodImageView();
         initalizeCuisineImageView();
-        initializeRecipeInstructionText();
         IntializeRecipeDetails();
 
     }
 
     //Init detailed view
     private void IntializeRecipeDetails() {
-
+        instructionLabel = new Label("Instruktion");
+        descriptionLabel = new Label("Beskrivning");
+        ingredientsLabel = new Label("Ingredienser");
     }
 
-    private void initializeRecipeInstructionText() {
-
-    }
 
     private void initalizeCuisineImageView() {
     }
@@ -386,15 +382,11 @@ public class RecipeSearchController implements Initializable {
         detailsimage.setImage(recipe.getFXImage());
         cuisineflag.setImage(getCuisineImage(recipe.getCuisine()));
         image1.setImage(getMainIngredientImage(recipe.getMainIngredient()));
-        descriptionlabel.setText(recipe.getDescription());
-        instructonlabel.setText(recipe.getInstruction());
-        System.out.println(concatenateStrings(recipe.getIngredients(), "\n"));
-
-        System.out.println(recipe.getDescription());
-        System.out.println(recipe.getInstruction());
         label1.setText(Integer.toString(recipe.getTime()));
         label2.setText(Integer.toString(recipe.getPrice()));
-
+        ingredientsLabel.setText(concatenateStrings(recipe.getIngredients(), "\n"));
+        descriptionLabel.setText(recipe.getDescription());
+        instructionLabel.setText(recipe.getInstruction());
     }
 
     private String concatenateStrings(List<Ingredient> listIngredients, String divider) {
@@ -420,9 +412,7 @@ public class RecipeSearchController implements Initializable {
 
     // Recipe
     private void updateRecipeList(RecipeBackendController recipeBC) {
-        //System.out.println(recipeBC);
         flowpane1.getChildren().clear();
-
         for (Recipe recipe : recipeBC.getRecipes()) {
             flowpane1.getChildren().add(recipeListItemMap.get(recipe.getName()));
         }
