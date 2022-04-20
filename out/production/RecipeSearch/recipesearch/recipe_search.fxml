@@ -19,22 +19,6 @@
    <children>
       <StackPane layoutY="-2.0" prefHeight="500.0" prefWidth="674.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="recipedetails" prefHeight="391.0" prefWidth="557.0" style="-fx-background-color: FF0000;">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <children>
-                  <Button fx:id="detailsbutton" layoutX="547.0" layoutY="384.0" mnemonicParsing="false" onAction="#closeRecipeView" prefHeight="26.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="52.0" AnchorPane.rightAnchor="29.0" />
-                  <ImageView fx:id="detailsimage" fitHeight="194.0" fitWidth="224.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="269.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="-1.0" />
-                  <Label fx:id="detailslabel" layoutX="288.0" layoutY="14.0" prefHeight="17.0" prefWidth="289.0" text="Recepe Detals" />
-                  <ImageView fx:id="cuisineflag" fitHeight="26.0" fitWidth="44.0" layoutX="155.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="image1" fitHeight="35.0" fitWidth="44.0" layoutX="240.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="image2" fitHeight="35.0" fitWidth="86.0" layoutX="296.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="image3" fitHeight="26.0" fitWidth="29.0" layoutX="377.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="label1" layoutX="441.0" layoutY="43.0" text="Label" />
-                  <Label fx:id="label2" layoutX="487.0" layoutY="43.0" text="Label" />
-               </children>
-            </AnchorPane>
             <SplitPane dividerPositions="0.4013353115727003" prefHeight="160.0" prefWidth="200.0">
               <items>
                 <AnchorPane fx:id="searchview" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
@@ -88,5 +72,21 @@
             </SplitPane>
          </children>
       </StackPane>
+      <AnchorPane fx:id="recipedetails" layoutX="6.0" layoutY="7.0" prefHeight="472.0" prefWidth="659.0" style="-fx-background-color: FF0000;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Button fx:id="detailsbutton" layoutX="547.0" layoutY="384.0" mnemonicParsing="false" onAction="#closeRecipeView" prefHeight="26.0" prefWidth="60.0" text="Close" AnchorPane.bottomAnchor="52.0" AnchorPane.rightAnchor="29.0" />
+            <ImageView fx:id="detailsimage" fitHeight="194.0" fitWidth="224.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="269.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="412.0" AnchorPane.topAnchor="-1.0" />
+            <Label fx:id="detailslabel" layoutX="288.0" layoutY="14.0" prefHeight="17.0" prefWidth="289.0" text="Recepe Detals" />
+            <ImageView fx:id="cuisineflag" fitHeight="26.0" fitWidth="44.0" layoutX="155.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image1" fitHeight="35.0" fitWidth="44.0" layoutX="240.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image2" fitHeight="35.0" fitWidth="86.0" layoutX="296.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image3" fitHeight="26.0" fitWidth="29.0" layoutX="377.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="label1" layoutX="441.0" layoutY="43.0" text="Label" />
+            <Label fx:id="label2" layoutX="487.0" layoutY="43.0" text="Label" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
