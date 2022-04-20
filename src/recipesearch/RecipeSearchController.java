@@ -26,7 +26,7 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private ComboBox mainIngredientComboBox;
     @FXML
-    private ComboBox comboBoxCuisine;
+    private ComboBox CuisineComboBox;
     @FXML
     private RadioButton radiobutton1;
     @FXML
@@ -71,7 +71,7 @@ public class RecipeSearchController implements Initializable {
 
         /*for Cuisine*/
 
-        comboBoxCuisine.getItems().addAll(
+        CuisineComboBox.getItems().addAll(
                 "Visa alla",
                 "Sverige",
                 "Grekland",
@@ -80,8 +80,8 @@ public class RecipeSearchController implements Initializable {
                 "Afrika",
                 "Frankrike"
         );
-        comboBoxCuisine.getSelectionModel().select("Visa alla");
-        comboBoxCuisine.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        CuisineComboBox.getSelectionModel().select("Visa alla");
+        CuisineComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 backendController.setCuisine(newValue);
