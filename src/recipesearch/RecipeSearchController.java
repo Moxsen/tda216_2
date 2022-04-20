@@ -403,18 +403,15 @@ public class RecipeSearchController implements Initializable {
 
 
     public void closeButtonMouseEntered(){
-        closeImageViewButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "RecipeSearch/resources/icon_close_hover.png")));
+        closeImageViewButton.setImage(new Image("RecipeSearch/resources/icon_close_hover.png"));
     }
 
     public void closeButtonMousePressed(){
-        closeImageViewButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "RecipeSearch/resources/icon_close_pressed.png")));
+        closeImageViewButton.setImage(new Image("RecipeSearch/resources/icon_close_pressed.png"));
     }
 
     public void closeButtonMouseExited(){
-        closeImageViewButton.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                "RecipeSearch/resources/icon_close.png")));
+        closeImageViewButton.setImage(new Image("RecipeSearch/resources/icon_close.png"));
     }
 
     // Recipe
