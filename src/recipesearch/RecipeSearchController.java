@@ -46,13 +46,9 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private ImageView detailsimage;
     @FXML
-    private Button detailsbutton;
-    @FXML
     private Label detailslabel;
     @FXML
     private AnchorPane recipedetails;
-    @FXML
-    private AnchorPane searchview;
     @FXML
     private ImageView cuisineflag;
     @FXML
@@ -66,14 +62,9 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private Label descriptionLabel;
     @FXML
-    private Label tillagninglabel;
-    @FXML
     private Label instructionLabel;
     @FXML
-    private Label ingredienser;
-    @FXML
     private Label ingredientsLabel;
-
 
 
 
@@ -93,7 +84,6 @@ public class RecipeSearchController implements Initializable {
         updateRecipeList(backendController);
 
         initializeRecipeSearchView();
-        initializeRecipeDetailView();
     }
 
     // Init main view
@@ -221,27 +211,7 @@ public class RecipeSearchController implements Initializable {
         populateMainIngredientComboBox();
     }
 
-    private void initializeRecipeDetailView() {
-        initalizeFoodImageView();
-        initalizeCuisineImageView();
-        IntializeRecipeDetails();
-
-    }
-
     //Init detailed view
-    private void IntializeRecipeDetails() {
-        instructionLabel = new Label("Instruktion");
-        descriptionLabel = new Label("Beskrivning");
-        ingredientsLabel = new Label("Ingredienser");
-    }
-
-
-    private void initalizeCuisineImageView() {
-    }
-
-    private void initalizeFoodImageView() {
-
-    }
 
     // Initialization utils
     private void populateMainIngredientComboBox() {
@@ -366,6 +336,23 @@ public class RecipeSearchController implements Initializable {
         return null;
     }
 
+
+    private Image getDifficultyImage(String difficulty) {
+        String iconPath;
+        switch (difficulty) {
+            case "Lätt":
+                iconPath = "recipesearch/resources/icon_difficulty_easy.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Mellan":
+                iconPath = "recipesearch/resources/icon_difficulty_medium.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+            case "Svår":
+                iconPath = "recipesearch/resources/icon_difficulty_hard.png";
+                return new Image(getClass().getClassLoader().getResourceAsStream(iconPath));
+        }
+        return null;
+    }
+
     private void setImageRadioButton(String s, RadioButton radioButton2) {
         ImageView imageViewDiffEasy = new ImageView(s);
         imageViewDiffEasy.setFitHeight(12);
@@ -378,16 +365,19 @@ public class RecipeSearchController implements Initializable {
     }
 
     public void populateRecipeDetailView(Recipe recipe) {
+        ingredientsLabel.setText(concatenateStrings(recipe.getIngredients(), "\n"));
+        descriptionLabel.setText(recipe.getDescription());
+        instructionLabel.setText(recipe.getInstruction());
         detailslabel.setText(recipe.getName());
         detailsimage.setImage(recipe.getFXImage());
         cuisineflag.setImage(getCuisineImage(recipe.getCuisine()));
         image1.setImage(getMainIngredientImage(recipe.getMainIngredient()));
+        image2.setImage(getDifficultyImage(recipe.getDifficulty()));
         label1.setText(Integer.toString(recipe.getTime()));
         label2.setText(Integer.toString(recipe.getPrice()));
-        ingredientsLabel.setText(concatenateStrings(recipe.getIngredients(), "\n"));
-        descriptionLabel.setText(recipe.getDescription());
-        instructionLabel.setText(recipe.getInstruction());
-    }
+
+        System.out.println(recipe.getDifficulty());
+        }
 
     private String concatenateStrings(List<Ingredient> listIngredients, String divider) {
         String result = "";
@@ -407,8 +397,6 @@ public class RecipeSearchController implements Initializable {
         populateRecipeDetailView(recipe);
         recipedetails.toFront();
     }
-
-
 
     // Recipe
     private void updateRecipeList(RecipeBackendController recipeBC) {

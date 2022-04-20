@@ -83,9 +83,13 @@
             <ImageView fx:id="cuisineflag" fitHeight="26.0" fitWidth="44.0" layoutX="155.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="image1" fitHeight="35.0" fitWidth="44.0" layoutX="240.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="image2" fitHeight="35.0" fitWidth="86.0" layoutX="296.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="image3" fitHeight="26.0" fitWidth="29.0" layoutX="377.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="label1" layoutX="441.0" layoutY="43.0" styleClass="text-normal" text="Label" />
-            <Label fx:id="label2" layoutX="487.0" layoutY="43.0" styleClass="text-normal" text="Label" />
+            <ImageView fx:id="image3" fitHeight="16.5" layoutX="424.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" smooth="true">
+               <image>
+                  <Image url="@../recipesearch/resources/icon_time.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="label1" layoutX="441.0" layoutY="43.0" styleClass="text-normal" text="Tid" />
+            <Label fx:id="label2" layoutX="487.0" layoutY="43.0" styleClass="text-normal" text="Kr" />
             <Label fx:id="descriptionLabel" layoutX="255.0" layoutY="88.0" prefHeight="35.0" prefWidth="331.0" styleClass="text-normal" wrapText="true" />
             <Label fx:id="tillagninglabel" layoutX="255.0" layoutY="146.0" prefHeight="26.0" prefWidth="71.0" styleClass="text-larger" text="Tillagning:" />
             <Label fx:id="ingredienser" layoutX="36.0" layoutY="202.0" prefHeight="26.0" prefWidth="104.0" styleClass="text-larger" text="Ingredienser:" />
