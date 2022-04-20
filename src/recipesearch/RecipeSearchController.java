@@ -65,6 +65,18 @@ public class RecipeSearchController implements Initializable {
     private Label label1;
     @FXML
     private Label label2;
+    @FXML
+    private Label discriptionlabel;
+    @FXML
+    private Label tillagninglabel;
+    @FXML
+    private Label instructionlabel;
+    @FXML
+    private Label ingredienser;
+    @FXML
+    private Label ingredinserlabel;
+
+
 
 
 
