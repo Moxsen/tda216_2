@@ -13,7 +13,7 @@
 .text-bold{
     -fx-font-size: 13px;
     -fx-font-family: "Cooper";
-    -fx-font-weight: "bold";
+    -fx-font-weight: bold;
 }
 /* If fonts dont work on both mac and windows, just use Comic Sans MS instead */
 .logo{
