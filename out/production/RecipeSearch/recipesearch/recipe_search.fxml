@@ -19,6 +19,12 @@
       <StackPane layoutY="-2.0" prefHeight="500.0" prefWidth="674.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane fx:id="recipedetails" onMouseClicked="#closeRecipeView" style="-fx-background-color: #0F0F0FAF;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
                <children>
                   <AnchorPane onMouseClicked="#mouseTrap" style="-fx-background-color: FFFFFF;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
                      <opaqueInsets>
@@ -38,11 +44,11 @@
                         <Label fx:id="label1" alignment="TOP_LEFT" layoutX="512.0" layoutY="43.0" styleClass="text-larger" text="sek" AnchorPane.leftAnchor="475.0" AnchorPane.topAnchor="45.0" />
                         <Label fx:id="label2" alignment="TOP_LEFT" layoutX="417.0" layoutY="43.0" styleClass="text-larger" text="m" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="45.0" />
                         <Label alignment="TOP_LEFT" layoutX="540.0" layoutY="43.0" styleClass="text-larger" text="Kr" AnchorPane.leftAnchor="503.0" AnchorPane.topAnchor="45.0" />
-                        <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="225.0" layoutY="88.0" prefHeight="60.0" prefWidth="385.0" styleClass="text-normal" text="Desc" wrapText="true" AnchorPane.leftAnchor="225.0" />
+                        <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="225.0" layoutY="88.0" prefHeight="60.0" prefWidth="385.0" styleClass="text-normal" text="Desc" wrapText="true" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="24.0" />
                         <Label fx:id="tillagninglabel" alignment="TOP_LEFT" layoutX="205.0" layoutY="167.0" styleClass="text-bold" text="Tillagning:" AnchorPane.leftAnchor="200.0" />
                         <Label fx:id="ingredienser" alignment="TOP_LEFT" layoutX="14.0" layoutY="243.0" prefWidth="200.0" styleClass="text-bold" text="Ingredienser:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="243.0" />
                         <Label fx:id="ingredientsLabel" alignment="TOP_LEFT" layoutX="1.0" layoutY="269.0" prefHeight="190.0" prefWidth="200.0" styleClass="text-normal" text="Label" AnchorPane.leftAnchor="10.0" />
-                        <Label fx:id="instructionLabel" alignment="TOP_LEFT" layoutX="205.0" layoutY="207.0" prefHeight="240.0" prefWidth="410.0" text="Label" wrapText="true" AnchorPane.leftAnchor="200.0" />
+                        <Label fx:id="instructionLabel" alignment="TOP_LEFT" layoutX="205.0" layoutY="207.0" prefHeight="240.0" prefWidth="410.0" text="Label" wrapText="true" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="207.0" />
                         <ImageView fx:id="closeImageView" fitHeight="15.0" fitWidth="15.0" layoutX="605.0" layoutY="6.0" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <image>
                               <Image url="@resources/icon_close.png" />
@@ -52,12 +58,6 @@
                      </children>
                   </AnchorPane>
                </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <StackPane.margin>
-                  <Insets />
-               </StackPane.margin>
             </AnchorPane>
             <SplitPane dividerPositions="0.37" prefHeight="160.0" prefWidth="200.0">
               <items>
