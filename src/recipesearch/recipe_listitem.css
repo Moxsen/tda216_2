@@ -10,7 +10,10 @@
     -fx-font-size: 15px;
     -fx-font-family: "Avenir Book";
 }
-
+.text-bold{
+    -fx-font-size: 13px;
+    -fx-font-family: "Cooper";
+}
 /* If fonts dont work on both mac and windows, just use Comic Sans MS instead */
 .logo{
     -fx-font-size: 39px;

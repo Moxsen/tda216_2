@@ -88,7 +88,7 @@
                   <Label fx:id="label2" layoutX="487.0" layoutY="43.0" styleClass="text-normal" text="Kr" />
                   <Label layoutX="507.0" layoutY="43.0" styleClass="text-normal" text="Kr" AnchorPane.rightAnchor="257.0" />
                   <Label fx:id="descriptionLabel" layoutX="225.0" layoutY="88.0" prefHeight="35.0" prefWidth="391.0" styleClass="text-normal" wrapText="true" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="20.0" />
-                  <Label fx:id="tillagninglabel" layoutX="255.0" layoutY="146.0" prefHeight="26.0" prefWidth="71.0" styleClass="text-larger" text="Tillagning:" />
+                  <Label fx:id="tillagninglabel" layoutX="255.0" layoutY="146.0" prefHeight="26.0" prefWidth="71.0" style="-fx-font-weight: bold;" text="Tillagning:" />
                   <Label fx:id="ingredienser" layoutX="36.0" layoutY="202.0" prefHeight="26.0" prefWidth="104.0" styleClass="text-larger" text="Ingredienser:" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="496.0" AnchorPane.topAnchor="202.0" />
                   <Label fx:id="ingredientsLabel" layoutX="19.0" layoutY="236.0" prefHeight="194.0" prefWidth="172.0" styleClass="text-normal" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="454.0" />
                   <Label fx:id="instructionLabel" layoutX="205.0" layoutY="207.0" prefHeight="187.0" prefWidth="444.0" text="Label" wrapText="true" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="0.0" />
