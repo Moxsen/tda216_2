@@ -89,13 +89,6 @@ public class RecipeSearchController implements Initializable {
         initializeRecipeSearchView();
     }
 
-    @FXML
-    public void mouseTrap(Event event){
-        event.consume();
-    }
-
-
-
     // Init main view
     private void initializeRecipeSearchView() {
         /*for main ingredient */
@@ -408,7 +401,10 @@ public class RecipeSearchController implements Initializable {
         recipedetails.toFront();
     }
 
-
+    @FXML
+    public void mouseTrap(Event event){
+        event.consume();
+    }
 
     public void closeButtonMouseEntered(){
         closeImageView.setImage(new Image("RecipeSearch/resources/icon_close_hover.png"));
