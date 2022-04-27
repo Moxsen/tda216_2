@@ -76,7 +76,7 @@
             <Insets />
          </opaqueInsets>
          <children>
-            <ImageView fx:id="detailsimage" fitHeight="176.0" fitWidth="194.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="-1.0" />
+            <ImageView fx:id="detailsimage" fitHeight="173.0" fitWidth="203.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="296.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="2.0" />
             <Label fx:id="detailslabel" layoutX="288.0" layoutY="14.0" prefHeight="19.0" prefWidth="104.0" styleClass="text-larger" text="Recepe Detals" wrapText="true" />
             <ImageView fx:id="cuisineflag" fitHeight="26.0" fitWidth="44.0" layoutX="155.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="image1" fitHeight="35.0" fitWidth="44.0" layoutX="240.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
