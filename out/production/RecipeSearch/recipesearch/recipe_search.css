@@ -10,6 +10,10 @@
     -fx-font-size: 15px;
     -fx-font-family: "Avenir Book";
 }
+.text-title{
+    -fx-font-size: 24px;
+    -fx-font-family: "Avenir Book";
+}
 .text-bold{
     -fx-font-size: 13px;
     -fx-font-family: "Cooper";
