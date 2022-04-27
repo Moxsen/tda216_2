@@ -26,3 +26,9 @@
 .rb {
     -fx-label-padding: 15;
 }
+.recipe-list-item:hover{
+    -fx-background-color: #FCFCFC;
+}
+.recipe-list-item:pressed{
+    -fx-background-color: #D0D0D0;
+}
