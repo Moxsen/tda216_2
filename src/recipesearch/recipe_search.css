@@ -10,7 +10,11 @@
     -fx-font-size: 15px;
     -fx-font-family: "Avenir Book";
 }
-
+.text-bold{
+    -fx-font-size: 13px;
+    -fx-font-family: "Cooper";
+    -fx-font-weight: "bold";
+}
 /* If fonts dont work on both mac and windows, just use Comic Sans MS instead */
 .logo{
     -fx-font-size: 39px;
@@ -21,10 +25,6 @@
     -fx-font-family: "Lucida Handwriting";
     -fx-rotate: -12;
     -fx-text-fill: #FFAC33;
-}
-
-.rb {
-    -fx-label-padding: 15;
 }
 .recipe-list-item:hover{
     -fx-background-color: #FCFCFC;
