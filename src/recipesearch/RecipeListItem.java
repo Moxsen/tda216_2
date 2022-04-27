@@ -20,7 +20,9 @@ public class RecipeListItem extends AnchorPane {
         @FXML
         private Label stektegglabel;
         @FXML
-        private ImageView pict = new ImageView();
+        private ImageView pict;
+        @FXML
+        private Label recipeListItemDescription;
 
         public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe_listitem.fxml"));
@@ -35,6 +37,7 @@ public class RecipeListItem extends AnchorPane {
 
             stektegglabel.setText(recipe.getName());
             pict.setImage(recipe.getFXImage());
+            recipeListItemDescription.setText(recipe.getDescription());
 
             this.recipe = recipe;
             this.parentController = recipeSearchController;

@@ -13,7 +13,12 @@
             <Image url="@../../recipes/recipe1.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="stektegglabel" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="22.0" prefHeight="17.0" styleClass="text-smaller" text="put your text here" AnchorPane.leftAnchor="150.0">
+      <Label fx:id="stektegglabel" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="22.0" prefHeight="17.0" styleClass="text-normal" text="put your text here" AnchorPane.leftAnchor="150.0">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <Label fx:id="recipeListItemDescription" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="40.0" prefHeight="34.0" prefWidth="400.0" styleClass="text-smaller" wrapText="true" AnchorPane.leftAnchor="150.0">
          <padding>
             <Insets left="20.0" />
          </padding>
