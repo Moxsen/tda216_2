@@ -19,9 +19,11 @@ public class RecipeListItem extends AnchorPane {
         private Recipe recipe;
         @FXML
         private Label stektegglabel;
-        @FXML
-        private ImageView pict;
-        @FXML
+    @FXML
+    private ImageView pict;
+    @FXML
+    private ImageView pictFlag;
+    @FXML
         private Label recipeListItemDescription;
 
         public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController){
@@ -38,6 +40,7 @@ public class RecipeListItem extends AnchorPane {
             stektegglabel.setText(recipe.getName());
             pict.setImage(recipe.getFXImage());
             recipeListItemDescription.setText(recipe.getDescription());
+            pictFlag.setImage(recipeSearchController.getCuisineImage(recipe.getCuisine()));
 
             this.recipe = recipe;
             this.parentController = recipeSearchController;
