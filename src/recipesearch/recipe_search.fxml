@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<AnchorPane maxHeight="502.0" maxWidth="800.0" minHeight="500.0" minWidth="676.0" prefHeight="502.0" prefWidth="676.0" style="-fx-border-width: 1px; -fx-border-color: #999999; -fx-border-radius: 1px; -fx-background-radius: 1px;" stylesheets="@recipe_search.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
+<AnchorPane minHeight="500.0" minWidth="743.0" prefWidth="700.0" style="-fx-border-width: 1px; -fx-border-color: #999999; -fx-border-radius: 1px; -fx-background-radius: 1px;" stylesheets="@recipe_search.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
    <children>
-      <StackPane layoutY="-2.0" prefHeight="500.0" prefWidth="674.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane layoutY="-2.0" minWidth="244.0" prefHeight="500.0" prefWidth="674.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane fx:id="recipedetails" onMouseClicked="#closeRecipeView" style="-fx-background-color: #0F0F0FAF;">
                <opaqueInsets>
@@ -61,7 +61,7 @@
             </AnchorPane>
             <SplitPane dividerPositions="0.37" prefHeight="160.0" prefWidth="200.0">
               <items>
-                <AnchorPane fx:id="searchview" minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="329.0">
+                <AnchorPane fx:id="searchview" minHeight="0.0" minWidth="244.0" prefHeight="498.0" prefWidth="329.0">
                      <children>
                         <ImageView fx:id="logoImage" fitHeight="55.0" fitWidth="55.0" layoutX="30.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" smooth="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
                            <image>
@@ -99,11 +99,11 @@
                         <Label fx:id="timelabel" layoutX="175.0" layoutY="448.0" text="150 min" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="448.0" />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="430.0">
+                <AnchorPane minWidth="495.0">
                      <children>
-                        <ScrollPane prefHeight="498.0" prefWidth="426.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <FlowPane fx:id="flowpane1" prefHeight="483.0" prefWidth="429.0" />
+                              <FlowPane fx:id="flowpane1" />
                            </content>
                         </ScrollPane>
                      </children>
