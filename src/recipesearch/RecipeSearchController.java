@@ -3,6 +3,7 @@ package recipesearch;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -87,6 +88,13 @@ public class RecipeSearchController implements Initializable {
 
         initializeRecipeSearchView();
     }
+
+    @FXML
+    public void mouseTrap(Event event){
+        event.consume();
+    }
+
+
 
     // Init main view
     private void initializeRecipeSearchView() {
